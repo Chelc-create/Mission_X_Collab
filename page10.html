@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page 10: Active Reports</title>
+
+    <link rel="stylesheet" href="page10.css" />
+<script src="FixIt.js" defer></script>
+</script>    <script src="page10.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anaheim:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Stack+Sans+Headline:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- PAGE 10: Active Reports -->
+    <section id="page-10">
+      <header class="app-header">
+        <div class="status-bar">
+          <div class="status-left">
+            <span class="time">9:41</span>
+          </div>
+          <div class="status-right">
+            <i class="fa-solid fa-signal" aria-hidden="true"></i>
+            <i class="fa-solid fa-wifi" aria-hidden="true"></i>
+            <i class="fa-solid fa-battery-full" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <!-- Top navigation bar -->
+        <div class="nav-bar">
+          <div class="nav-left">
+            <h1 class="app-title">My Reports</h1>
+          </div>
+
+          <button class="menu-hamburger" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Slide-out mobile menu -->
+        <nav class="mobile-nav" aria-hidden="true">
+          <button class="mobile-nav-back" aria-label="Close menu">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <ul class="nav-links">
+            <li>
+              <a href="#"><i class="fa-solid fa-house"></i>Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-user"></i>Account</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-circle-question"></i>FAQs</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-phone"></i>Contact</a>
+            </li>
+            <li class="logout">
+              <a href="#"
+                ><i class="fa-solid fa-right-from-bracket"></i>Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Nav-Overlay -->
+        <div class="nav-overlay"></div>
+      </header>
+
+      <main class="card-container">
+        <div class="search-and-actions">
+          <!-- Search Bar -->
+          <form class="search-input" action="#" aria-label="Search reports">
+            <!-- Search icon (LEFT) -->
+            <button class="search-btn" type="submit" aria-label="Search">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+            <!-- Input Field -->
+            <input
+              type="search"
+              class="search-field"
+              placeholder="Search Reports"
+              aria-label="Search Reports"
+            />
+
+            <!-- Mic icon (RIGHT) -->
+            <button class="mic-btn" type="button" aria-label="Voice input">
+              <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+            </button>
+          </form>
+
+          <div class="sort-and-filter">
+            <button class="sort-btn" type="button" aria-label="Sort">
+              <i class="fa-solid fa-arrow-up-long" aria-hidden="true"></i>
+              <i class="fa-solid fa-arrow-down-long" aria-hidden="true"></i>
+            </button>
+
+            <button class="filter-btn" type="button" aria-label="Filter">
+              <i class="fa-solid fa-filter" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Active / Resolved Tab -->
+        <div class="active-resolved-tab">
+          <button
+            class="active-btn is-active"
+            type="button"
+            aria-label="Active"
+            data-filter="active"
+          >
+            Active (1)
+          </button>
+
+          <button
+            class="resolved-btn"
+            type="button"
+            aria-label="Resolved"
+            data-filter="resolved"
+          >
+            Resolved (2)
+          </button>
+        </div>
+
+        <!-- Report Card -->
+
+        <a
+          href="pg9.html"
+          class="report-card"
+          aria-label="View active report"
+          data-status="active"
+          ⭐
+          id="active-report-card"
+        >
+          <div class="image-preview">
+            <img
+              class="preview-img"
+              src="images/icon/A-two-colour-tag-by-the-late-SINCH-in-the-Melbourne-suburb-of-Balaclava-photo-Allissa-Oughtred 1.png"
+              alt="Graffiti on a garage door"
+              id="active-report-img"
+            />
+          </div>
+
+          <div class="report-summary">
+            <h2 class="report-number">
+              Report Number:
+              <span id="active-report-id">-</span>
+            </h2>
+
+            <ul class="report-meta">
+              <li id="active-report-category">-</li>
+              <li id="active-report-location">-</li>
+              <li>Submitted: <span id="active-report-date">-</span></li>
+            </ul>
+          </div>
+
+          <div class="status-pill" id="active-report-status">-</div>
+        </a>
+
+        <!-- RESOLVED Report Card 1 -->
+        <a
+          href="pg9.html"
+          class="report-card"
+          data-status="resolved"
+          aria-label="View report #047892"
+        >
+          <div class="image-preview">
+            <img
+              class="preview-img"
+              src="images/icon/A-two-colour-tag-by-the-late-SINCH-in-the-Melbourne-suburb-of-Balaclava-photo-Allissa-Oughtred 1.png"
+              alt="Graffiti on a garage door"
+            />
+          </div>
+
+          <div class="report-summary">
+            <h2 class="report-number">
+              Report Number:
+              <span id="resolved-report-id">FIX-20260112-FF02K</span>
+            </h2>
+            <ul class="report-meta">
+              <li id="resolved-category">Water Leak</li>
+              <li id="resolved-location">Location: 52 Banana Ave, WLG</li>
+              <li id="resolved-date">Submitted: 06/01/2025</li>
+            </ul>
+          </div>
+
+          <div class="status-pill">Resolved</div>
+        </a>
+
+        <!-- RESOLVED Report Card 2 -->
+        <a
+          href="pg9.html"
+          class="report-card"
+          data-status="resolved"
+          aria-label="View report #055562"
+        >
+          <div class="image-preview">
+            <img
+              class="preview-img"
+              src="images/icon/A-two-colour-tag-by-the-late-SINCH-in-the-Melbourne-suburb-of-Balaclava-photo-Allissa-Oughtred 1.png"
+              alt="Street light issue"
+            />
+          </div>
+
+          <div class="report-summary">
+            <h2 class="report-number">Report Number:
+              <span id="resolved-report-id">FIX-20250521-GF85D
+            </h2>
+            <ul class="report-meta">
+              <li id="resolved-category">Street Lights</li>
+              <li id="resolved-location">Location: 18 Crab Lane, WLG</li>
+              <li id="resolved-date">Submitted: 12/03/2024</li>
+            </ul>
+          </div>
+
+          <div class="status-pill">Resolved</div>
+        </a>
+      </main>
+    </section>
+  </body>
+</html>

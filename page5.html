@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page 5:</title>
+    <link rel="stylesheet" href="page5.css" />
+    <script src="storage.js" defer></script>
+    <script src="FixIt.js" defer></script>
+    <script src="page5.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anaheim:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Stack+Sans+Headline:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  </head>
+  <body>
+    <!-- PAGE 5: Category -->
+<section id="page-5">
+  <header class="app-header">
+    <div class="status-bar">
+      <div class="status-left">
+        <span class="time">9:41</span>
+      </div>
+      <div class="status-right">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+  <!-- Top navigation bar -->
+    <div class="nav-bar">
+      <div class="nav-left">
+        <h1 class="app-title">Let's FixIt</h1>
+        </div>
+
+        <button class="menu-hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+      <!-- Slide-out mobile menu -->
+       <nav class="mobile-nav" aria-hidden="true">
+        <button class="mobile-nav-back" aria-label="Close menu">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
+          <li><a href="#"><i class="fa-solid fa-user"></i>Account</a></li>
+          <li><a href="#"><i class="fa-solid fa-circle-question"></i>FAQs</a></li>
+          <li><a href="#"><i class="fa-solid fa-phone"></i>Contact</a></li>
+          <li class="logout"><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+          </ul>
+       </nav>
+
+       <!-- Nav-Overlay -->
+        <div class="nav-overlay"></div>
+  </header>
+
+      <!-- Card -->
+      <div class="card-container">
+        <div class="card-content">
+        <div class="progress-and-exit">
+          <div class="progress-indicator" data-step="2">
+            <div class="progress" role="progressbar"
+            aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill"></div>
+          </div>
+          </div>
+         <button class="exit-cross" type="button" aria-label="exit-form">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </button>
+        </div>
+
+        <!-- Exit confirmation  -->
+ <div class="exit-overlay" aria-hidden="true"></div>
+ <div class="exit-modal " role="dialog" aria-modal="true" aria-hidden="true">
+  <h3 class="exit-title">Leave this report?</h3>
+  <p class="exit-text">Your progress will be lost unless you save a draft.</p>
+
+  <div class="exit-actions">
+    <button class="exit-cancel" type="button">Keep reporting</button>
+    <button class="exit-confirm" type="button">Exit to Home</button>
+  </div>
+ </div>
+
+        <h2 class="report-question">What type of issue would you like to report?</h2>
+
+        <!-- tip dropdown -->
+        <div class="tip" id="tip-help">
+          <button 
+          type="button" 
+          class="tip-button" 
+          aria-expanded="false" 
+          aria-controls="tip-help-content">
+          <span class="tip-left">
+           <i class="fa-solid fa-circle-info"></i>
+           <span class="tip-title">How to help</span>
+    </span>
+        <span class="tip-right">
+        <span class="tip-chevron" 
+        aria-hidden="true">
+        <i class="fa-solid fa-chevron-down"></i>
+      </span>
+        </span>
+          </button>
+
+          <!-- tip content -->
+          <div class="tip-content" id="tip-help-content" >   
+            <p>To help us fix the issue faster, include details like:</p>
+            <ul>
+              <li>Specific details about what you saw.</li>
+              <li>Exact location or nearby landmarks.</li>
+              <li>How long the issue has been present.</li>
+              <li>Any hazards or urgency.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Category Dropdown -->
+        <div class="category-dropdown">
+          <label class="field-label" for="issue">Category</label>
+          <div class="combo">
+            <input
+            id="issue"
+            name="issue"
+            type="text"
+            placeholder="Select or type a category..."
+            autocomplete="off"
+            aria-expanded="false"
+            aria-controls="issue-menu"
+            />
+            
+            <button class="combo-arrow" type="button" aria-label="Toggle category menu">
+             <i class="select-arrow fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+
+          <ul class="combo-menu" id="issue-menu" role="listbox" hidden>
+            <li role="option" data-value="Parking">Parking</li>
+            <li role="option" data-value="Water and Drainage">Water and Drainage</li>
+            <li role="option" data-value="Street Lights">Street Lights</li>
+            <li role="option" data-value="Roads / Traffic / Footpaths">Roads / traffic / footpaths</li>
+          </ul>
+          </div>
+
+        <!-- Description field -->
+        <div class="description-field">
+          <label for="description" id="text-bold">
+            <span class="description-title">Description</span></label>
+
+          <div>
+            <textarea
+              id="description"
+              name="description"
+              required
+              maxlength="250"
+              placeholder="Please include as many relevant details as you can."
+            ></textarea>
+            <p class="char-count">250 characters remaining</p>
+          </div>
+        </div>
+        </div>
+
+        <!-- Back and Continue buttons -->
+          <div class="actions">
+          <a href="location.html" class="back-btn" aria-label="back">back
+          <i class="fa-solid fa-chevron-down"></i>
+          </a>
+        <a href="page6.html" class="continue-btn" aria-label="continue">continue
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        </div>
+            <!-- Save draft button -->
+    <div class="save-draft">
+      <button class="save-draft-btn" type="button">
+        <span class="save-draft-text">Save draft</span>
+        <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+      </button>
+    </div>
+        </div>
+      
+    </section>
+
+
+ <div class="saved-feedback" aria-live="polite">
+  Draft Saved
+ </div>
+  </body>
+</html>

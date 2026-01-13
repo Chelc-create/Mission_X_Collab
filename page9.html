@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page 9: My Reports</title>
+    <link rel="stylesheet" href="page9.css" />
+    <script src="FixIt.js" defer></script>
+    <script src="page9.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anaheim:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Stack+Sans+Headline:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <section id="page-9">
+      <header class="app-header">
+        <div class="status-bar">
+          <div class="status-left">
+            <span class="time">9:41</span>
+          </div>
+          <div class="status-right">
+            <i class="fa-solid fa-signal"></i>
+            <i class="fa-solid fa-wifi"></i>
+            <i class="fa-solid fa-battery-full"></i>
+          </div>
+        </div>
+
+         <!-- Top navigation bar -->
+    <div class="nav-bar">
+      <div class="nav-left">
+        <h1 class="app-title">My Reports</h1>
+        </div>
+
+        <button class="menu-hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+      <!-- Slide-out mobile menu -->
+       <nav class="mobile-nav" aria-hidden="true">
+        <button class="mobile-nav-back" aria-label="Close menu">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
+          <li><a href="#"><i class="fa-solid fa-user"></i>Account</a></li>
+          <li><a href="#"><i class="fa-solid fa-circle-question"></i>FAQs</a></li>
+          <li><a href="#"><i class="fa-solid fa-phone"></i>Contact</a></li>
+          <li class="logout"><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+          </ul>
+       </nav>
+
+       <!-- Nav-Overlay -->
+        <div class="nav-overlay"></div>
+  </header>
+
+      <main class="card-container">
+        <!-- NEW: scrollable content area -->
+        <div class="card-scroll">
+          <!-- Report Summary -->
+          <section class="report-summary-card" id="active-report-card">
+            <a href="page10.html" class="back-arrow" aria-label="Back to page 8">
+              <i class="fa-solid fa-circle-chevron-left"></i>
+            </a>
+
+            <div class="report-summary">
+              <h2 class="report-number"
+                 id="active-report-id">-
+              </h2>
+
+              <div class="summary-bottom-row">
+                <ul class="report-meta">
+                  <li id="active-report-category">-</li>
+                  <li id="active-report-location">-</li>
+                  <li>Submitted: <span id="active-report-date">-</span></li>
+                </ul>
+                <span class="status" id="active-report-status">-
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Images -->
+          <div class="image-container">
+            <div class="image-card-preview">
+              <img
+                class="preview-img"
+                src="images/icon/A-two-colour-tag-by-the-late-SINCH-in-the-Melbourne-suburb-of-Balaclava-photo-Allissa-Oughtred 1.png"
+                alt="graffiti"
+              />
+            </div>
+
+            <div class="image-card-preview">
+              <img
+                class="preview-img"
+                src="images/pictures/Water-leak-png.png"
+                alt="spray can"
+              />
+            </div>
+
+             <div class="image-card-preview">
+              <img
+                class="preview-img"
+                src="images/pictures/Street-light-png.png"
+                alt="spray can"
+              />
+            </div>
+          </div>
+
+          <!-- Council Chat Box -->
+          <section class="chat-box">
+            <div class="chat-avatar">
+              <img
+                class="wellington-city-logo"
+                src="images/pictures/wellingtoncitycouncil_logo 1.png"
+                alt="Wellington City Council"
+              />
+              <i
+                class="fa-solid fa-circle-check circle-check"
+                aria-hidden="true"
+              ></i>
+            </div>
+
+            <div class="chat-content">
+              <div class="chat-box-title">
+                <span class="messenger">Wellington City Council</span>
+                <span class="time-sent">11:03 am</span>
+              </div>
+
+              <div class="chat-box-message">
+                <p class="chat-box-text">
+                  Thanks for reaching out, we are currently investigating the
+                  issue.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- (Future) more chat messages would go here -->
+        </div>
+        <!-- END scrollable content area -->
+
+        <!-- Message Input stays pinned at bottom of the card -->
+        <form class="message-input" action="#" aria-label="Send a message">
+          <input
+            type="text"
+            class="message-field"
+            placeholder="Type a message"
+            aria-label="Message"
+          />
+          <div class="message-actions">
+            <button class="mic-btn" type="button" aria-label="Voice input">
+              <i class="fa-solid fa-microphone"></i>
+            </button>
+
+            <button class="send-btn" type="submit" aria-label="Send message">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </main>
+    </section>
+  </body>
+</html>

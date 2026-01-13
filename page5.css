@@ -1,0 +1,842 @@
+/* ================= RESET & GLOBAL ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Debugging */
+/* * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+  box-sizing: border-box;
+} */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+#page-5 {
+  min-height: 100vh;
+  background-color: #060932;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================= HEADER ================= */
+header {
+  width: 100%;
+  color: #ffffff;
+}
+
+/* ================= Status Bar ================= */
+.status-bar {
+  height: 24px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 12px;
+  color: #ffffff;
+  font-size: 0.85rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.status-left .time {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-right i {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* ================= NAVBAR ================= */
+.nav-bar {
+  padding: 40px 0px 0px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #afccb5;
+}
+
+.menu-hamburger {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.menu-hamburger i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* ================= BACK/CLOSE BUTTON ================= */
+.mobile-nav-back {
+  position: absolute;
+  top: 36px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobile-nav-back i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  color: white;
+}
+
+.mobile-nav {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  right: 0;
+
+  width: 120px;
+  height: 100vh;
+
+  background: #060932;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 110px;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+
+  transform: translateX(100%);
+  transition: transform 300ms ease;
+
+  display: flex;
+  margin: 0;
+}
+
+/* When menu is open (JS will toggle this) */
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* ================= NAVIGATION LINKS ================= */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links .logout {
+  margin-top: auto;
+  padding-bottom: 24px;
+}
+
+.nav-links i {
+  margin-bottom: 5px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.nav-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  text-decoration: none;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.nav-links li a {
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* ================= NAVIGATION OVERLAY ================= */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+
+  z-index: 1000;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* ================= CARD ================= */
+.card-container {
+  width: 100%;
+  background-color: #ffffff;
+
+  border-radius: 40px 40px 0px 0px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.card-content {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  gap: 0px;
+}
+  
+
+/* ================= PROGRESS+EXIT ================= */
+.progress-and-exit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.progress-indicator {
+  flex: 1;
+}
+
+.progress {
+  width: 100%;
+  height: 15px;
+  background: #e9ecef;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 25%;
+  background: #341bf1;
+  border-radius: 999px;
+  transition: width 250ms ease;
+}
+
+/* ================= QUIT FORM ================= */
+.exit-cross {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.exit-cross i {
+  flex: 0 0 auto;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #060932;
+  line-height: 1;
+}
+
+/* ================= EXIT-MODAL ================= */
+.exit-overlay,
+.exit-modal {
+  display: none;
+}
+
+.exit-overlay {
+  position: fixed;
+  inset: 0; /* “Cover the entire screen.” */
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+}
+
+.exit-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  max-width: 480px;
+  margin: 0 auto;
+
+  background: #ffff;
+  color: #060932;
+
+  width: 100%;
+  padding: 20px;
+  border-radius: 16px;
+
+  z-index: 2001;
+  text-align: center;
+}
+
+.exit-overlay.active,
+.exit-modal.active {
+  display: block;
+}
+
+.exit-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.exit-text {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #060932;
+  font-weight: 500;
+}
+
+.exit-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.exit-actions button {
+  flex: 1;
+  height: 48px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+.exit-cancel {
+  background: #060932;
+  color: white;
+  cursor: pointer;
+}
+
+.exit-confirm {
+  background: #afccb5;
+  color: #060932;
+  cursor: pointer;
+}
+
+.exit-actions button:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.report-question {
+  margin: 16px auto 12px;
+
+  font-size: 1.5rem;
+  color: #060932;
+}
+
+/* ================= TIP ================= */
+.tip {
+  background-color: #ffff;
+  margin-bottom: 6px;
+}
+
+.tip-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #060932;
+}
+
+.tip-button {
+  width: 100%;
+  background-color: #afccb5;
+  border: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  padding: 10px 14px;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.tip-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.25rem;
+  color: #060932;
+}
+
+.tip-left i {
+  font-size: 1.5rem;
+}
+
+.tip-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.25rem;
+  color: #060932;
+}
+
+.tip-content {
+  margin-top: 0px;
+
+  padding: 10px 14px;
+  border-radius: 8px;
+  background-color: #afccb5;
+  color: #060932;
+  font-size: 1rem;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  transition: max-height 250ms ease, opacity 200ms ease;
+}
+
+.tip.open .tip-content {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.tip-content p {
+  font-weight: 500;
+  margin: 0;
+}
+
+.tip-content li {
+  font-weight: 500;
+  margin: 0;
+}
+
+.tip-content ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.tip-chevron {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+/* open = rotate the chevron 180 degrees (down + up) */
+.tip-button[aria-expanded="true"] .tip-chevron {
+  transform: rotate(180deg);
+}
+
+/* ================= DROPDOWN ================= */
+.category-dropdown {
+  position: relative;
+}
+
+.combo {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-label {
+  font-weight: 600;
+  color: #060932;
+  margin: 0 0 6px;
+  font-size: 1.125rem;
+}
+
+#issue {
+  width: 100%;
+  min-height: 40px;
+  margin-top: 5px;
+
+  padding: 0 44px 0 20px;
+  border-radius: 8px;
+  border: 1px solid #060932;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #060932;
+  background-color: #ffffff;
+}
+
+.combo-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+
+  color: #060932;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.combo-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+
+  background: white;
+  border: 1px solid #060932;
+  border-radius: 8px;
+
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+
+  max-height: 180px;
+  overflow-y: auto;
+
+  z-index: 20;
+}
+
+.combo-menu li {
+  padding: 10px 16px;
+  font-size: 1rem;
+  color: #060932;
+  cursor: pointer;
+}
+
+.combo-menu li:hover,
+.combo-menu li:active {
+  background-color: #afccb5;
+}
+
+/* ================= DESCRIPTION ================= */
+.description-field {
+  margin-top: 10px;
+}
+
+.description-title {
+  font-weight: 600;
+  color: #060932;
+  margin: 0 0 6px;
+  font-size: 1.125rem;
+}
+
+.description-field textarea {
+  width: 100%;
+  min-height: 135px;
+  font-family: "Inter", sans-serif;
+
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #060932;
+
+  resize: none;
+  display: block;
+
+  margin-top: 5px;
+}
+
+.char-count {
+  margin-top: 6px;
+  text-align: right;
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  color: #060932;
+  transition: color 200ms ease;
+}
+
+/* Reaching character limit */
+.char-count.is-warning {
+  color: #b26a00;
+}
+
+.char-count.is-danger {
+  color: #b00020;
+}
+
+/* ================= ACTIONS ================= */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+
+  background: #ffffff;
+  margin-top: 40px;
+
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 12px 0;
+
+  border-top: 1px solid rgba(6, 9, 50, 0.12);
+}
+
+.back-btn,
+.continue-btn {
+  height: 70px;
+  min-width: 160px;
+
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  cursor: pointer;
+}
+
+.back-btn {
+  flex-direction: row-reverse;
+  background-color: #afccb5;
+  color: #060932;
+  border-radius: 0 50px 50px 0;
+}
+
+.back-btn i {
+  display: inline-flex;
+  transform: rotate(90deg);
+  font-size: 1.125rem;
+}
+
+.continue-btn {
+  background-color: #060932;
+  color: #ffffff;
+  border-radius: 50px 0 0 50px;
+}
+
+.continue-btn i {
+  display: inline-flex;
+  transform: rotate(270deg);
+  font-size: 1.125rem;
+}
+
+/* ================= SAVE DRAFT ================= */
+.save-draft {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+
+.save-draft-btn {
+  display: flex;
+  align-items: center;
+
+  flex-direction: row-reverse;
+  gap: 6px;
+  color: #341bf1;
+
+  font-size: 1.125rem;
+  font-weight: 600;
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.saved-feedback {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #060932;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+
+  z-index: 1000;
+}
+
+.saved-feedback.show {
+  opacity: 1;
+}
+a {
+  text-decoration: none;
+}
+/* ================= Active States ================= */
+button,
+.menu-hamburger,
+.exit-cross,
+.back-btn,
+.continue-btn,
+.save-draft-btn,
+.tip-button {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 140ms ease, opacity 140ms ease;
+}
+
+/* Active (tap) feedback */
+.exit-cross:active,
+.menu-hamburger:active,
+.back-btn:active,
+.continue-btn:active,
+.save-draft-btn:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+.tip-button:active {
+  transform: scale(0.98);
+  opacity: 0.95;
+}
+
+.nav-links li a:active {
+  opacity: 0.7;
+  transform: scale(0.96);
+}
+
+/* ================= Media Query ================= */
+@media only screen and (min-width: 768px) {
+
+  .nav-bar{
+    padding: 48px 24px 0;
+  }
+
+   .menu-hamburger i{
+    font-size: 1.75rem;
+  }
+
+  .card-container {
+    width: min(720px, 100%);
+    margin: 20px auto 0;
+    border-radius: 24px 24px 0px 0px;
+    padding: 28px 28px;
+
+  }
+
+
+  .card-content {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .report-question {
+    width: 100%;
+    margin: 18px 0 12px;
+  }
+
+  .field-label {
+    font-size: 1.25rem;
+  }
+
+  .description-title {
+    font-size: 1.25rem;
+  }
+
+  .progress-and-exit,
+  .tip,
+  .category-dropdown,
+  .description-field {
+    width: 100%;
+  }
+
+  .actions {
+    margin-left: -28px;
+    margin-right: -28px;
+    border-top: 1px solid rgba(6, 9, 50, 0.12);
+    padding: 14px 0;
+  }
+
+  .back-btn,
+  .continue-btn {
+    min-width: 180px;
+    font-size: 1.25rem;
+  }
+
+  .back-btn i,
+  .continue-btn i{
+  font-size: 1.5rem
+  }
+
+  .exit-modal {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+
+    max-width: 500px;
+    border-radius: 20px;
+  }
+}
+
+/* If the user says "Don't animate if the user asked us not to" */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav,
+  .nav-overlay {
+    transition: none;
+  }
+}
