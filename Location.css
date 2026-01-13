@@ -142,6 +142,11 @@ cta {
   padding-top: 1rem;
 }
 
+.error-text {
+  color: #a8982e !important;
+  padding: 5px;
+}
+
 #home {
   color: #060932;
   background-color: #afccb5;
@@ -298,6 +303,11 @@ cta {
     height: 5rem;
   }
 
+  .error-text {
+    font-size: 1.25rem !important;
+    padding: 5px;
+  }
+
   cta {
     font-size: 1.25rem;
     display: inline-block;
@@ -307,6 +317,7 @@ cta {
     bottom: 8rem !important;
     background: transparent !important; /* Makes the bar invisible so it doesn't block the map */
   }
+
   .action-btns,
   #home,
   #continue {
@@ -348,6 +359,11 @@ cta {
 
   #find-me {
     height: 6rem;
+  }
+
+  .error-text {
+    font-size: 1.5rem !important;
+    padding: 5px;
   }
 
   cta {
