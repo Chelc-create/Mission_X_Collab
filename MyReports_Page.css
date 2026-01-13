@@ -1,0 +1,101 @@
+.body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  background-color: #060932;
+}
+
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+
+.heading {
+  color: #afccb5;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.menu {
+  font-size: 2rem;
+}
+
+#topContainer {
+  width: 100%;
+  flex-grow: 1;
+  border-radius: 2.5rem 2.5rem 0 0;
+  background: white;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  margin: 0;
+}
+
+.form-control {
+  border: 1px solid #060932 !important;
+}
+
+#searchInput::placeholder {
+  color: #060932;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* search bar clicked state */
+#searchInput:focus {
+  border: 2px solid #341bf1 !important;
+  box-shadow: none;
+  outline: none;
+}
+
+#searchInput {
+  color: #060932;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #341bf1;
+}
+
+/* removes the default browser exit icon (when input text typed in)  */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* Main container for the tabs */
+.tab-container {
+  background-color: #b9b8b8;
+  border-radius: 50px;
+  padding: 0;
+  overflow: hidden;
+  display: inline-flex;
+  width: 100%;
+}
+
+/* individual tab links */
+.tab-container .nav-link {
+  text-align: center;
+  padding: 10px 0;
+  flex: 1;
+  border-radius: 0;
+  transition: background-color 0.3s;
+}
+
+/* Active Tab */
+.tab-container .nav-link.active {
+  background-color: #afccb5 !important;
+  color: #ffffff;
+  border-radius: 50px;
+  font-weight: 700;
+}

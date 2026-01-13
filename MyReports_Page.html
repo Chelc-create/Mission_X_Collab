@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyReports_Page</title>
+    <link rel="stylesheet" href="MyReports_Page.css" />
+   <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="MyReports_Page.js" defer></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+  </head>
+
+<!-- BODY -->
+<body class="body min-dvh-100">
+
+<!-- HEADING -->
+  <header class="heading-container container-fluid text-start mt-5 pt-5 pb-2" style="max-width: 40rem; width: 80%;">
+    <h1 class="heading">My Reports</h1>
+    <i class="menu text-end fa-solid fa-bars" style="color: #ffffff;"></i></div>
+  </header> 
+
+  <!-- MAIN SECTION -->
+  <main
+        id="topContainer"
+        class="card-grid flex-grow-1 d-flex align-contents-center justify-content-center min-dvh-100 ps-4 pe-4"
+        style="gap: 2.5rem; border-radius: 2rem 2rem 0 0"
+      >
+
+    <section class="card border-0 mb-5 w-100" style="max-width: 40rem;">
+
+    <!-- SEARCH BAR -->
+        <form class="d-flex align-items-center gap-3" role="search">
+
+          <div class="position-relative flex-grow-1">
+              <i class="fa-solid fa-magnifying-glass position-absolute start-0 top-50 translate-middle-y ms-3" style="color: #060932;"></i>
+
+            <input class="form-control ps-5 pe-5 rounded-pill" id="searchInput" type="search" placeholder="Type in your search here" aria-label="Search">
+            
+            <i id="clearBtn" class="fa-solid fa-circle-xmark position-absolute end-0 top-50 translate-middle-y me-5" style="color: #060932; cursor: pointer; opacity: 0; transition: 0.2s;"></i>
+
+            <i class="fa-solid fa-microphone position-absolute end-0 top-50 translate-middle-y me-3" style="color: #060932; cursor: pointer;"></i>    
+          </div>
+        <!-- Sort By Icon -->
+        <button type="button" class="btn d-flex align-items-center justify-content-center rounded-circle p-0" 
+                  style="background-color: #afccb5; width: 40px; height: 40px; flex-shrink: 0;">           
+                  <i class="fa-solid fa-arrows-up-down" style="color: #ffffff; font-size: 1.1rem;"></i>
+          </button>
+        <!-- Filter Icon -->
+          <button type="button" class="btn d-flex align-items-center justify-content-center rounded-circle p-0" 
+                  style="background-color: #afccb5; width: 40px; height: 40px; flex-shrink: 0;">
+            <i class="fa-solid fa-filter" style="color: #ffffff; font-size: 1rem;"></i>
+          </button>
+        
+      </form>
+        <!-- ACTIVE / RESOLVE TABS -->
+        <section class="card border-0 mb-4 w-100" style="max-width: 40rem;">
+            <form class="d-flex align-items-center gap-2 mb-4" role="search">
+          </form>
+          
+          <div class="tab-container">
+              <ul class="nav nav-pills w-100">
+                  <li class="nav-item flex-fill">
+                      <a class="nav-link active" aria-current="page" href="#">Active (1)</a>
+                  </li>
+                  <li class="nav-item flex-fill">
+                      <a class="nav-link" href="#" style="color: #060932; font-weight: 700;">Resolved (2)</a>
+                  </li>
+              </ul>
+          </div>
+      </section>
+
+      <div class="card border-0 rounded-4 mb-3 p-3" style="background-color: #afccb5;">
+        <div class="d-flex align-items-center">
+          
+          <img src="/images/Graffiti Image.png" class="rounded-3 me-3" alt="Report" 
+              style="width: 80px; height: 80px; object-fit: cover;">
+
+          <div class="flex-grow-1" style="color: #060932;">
+            <p class="mb-0 fw-bold">#039503</p>
+            <category class="mb-0 fw-semibold">Graffiti</category>
+            <address class="mb-0 fw-semibold">12 Apple St, WLG</address>
+            <date class="mb-0 fw-semibold">Submitted: 4/12/25</date>
+          </div>
+
+          <div class="bg-white rounded-pill px-4 py-2 shadow-sm">
+            <span class="fw-bold" style="color: #a68b00;">Pending</span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

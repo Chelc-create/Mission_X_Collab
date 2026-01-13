@@ -1,0 +1,57 @@
+.body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #060932;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.heading {
+  color: #afccb5;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.paragraph {
+  color: #ffff;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  margin-bottom: 1rem;
+}
+
+.FixIt {
+  color: #341bf1;
+  text-decoration: none;
+}
+
+.issues {
+  color: #afccb5;
+}
+
+#login,
+#guest,
+#urgent {
+  height: 4rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+}
+
+#login {
+  background-color: #341bf1;
+  min-width: 14rem;
+}
+
+#guest {
+  background-color: #afccb5;
+  color: #060932;
+}
+
+#urgent {
+  background-color: #a8982e;
+}

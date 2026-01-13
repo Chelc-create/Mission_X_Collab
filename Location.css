@@ -1,0 +1,385 @@
+.body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  color: #afccb5;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #060932;
+  box-sizing: border-box;
+}
+
+.heading-container,
+.navbar {
+  width: 100%;
+  display: flex;
+}
+
+.heading-container .container,
+.navbar > .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between;
+  padding: 0 1.5rem !important;
+  max-width: 100%;
+  min-height: 4rem;
+}
+
+.heading {
+  margin: 0 !important;
+  line-height: 1.2;
+  font-size: 2.35rem;
+  font-weight: 700;
+  color: #afccb5;
+}
+
+.menu {
+  font-size: 2rem;
+}
+
+#topContainer {
+  width: 100%;
+  flex-grow: 1;
+  border-radius: 2.5rem 2.5rem 0 0;
+  background: white;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  margin: 0;
+}
+
+.progress {
+  background-color: #dadada;
+  width: 20.5rem;
+}
+
+.progress-bar {
+  background-color: #341bf1 !important;
+}
+
+.icon {
+  color: #060932;
+  font-size: 2rem;
+}
+
+.prompt {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  color: #060932;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* input text */
+#enterLocation {
+  box-sizing: border-box;
+  border: 0.0625rem solid #060932;
+  background-color: #f7f5f5;
+  height: 3.5rem;
+  box-sizing: border-box;
+  display: flex;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 600;
+  color: #060932;
+}
+
+#enterLocation::placeholder {
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 500;
+  color: #060932;
+}
+
+#enterLocation:focus {
+  border: 2px solid #341bf1 !important;
+  box-shadow: none;
+  outline: none;
+}
+
+#OR {
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #060932;
+}
+
+/* current location button */
+#find-me {
+  background-color: #341bf1 !important;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+cta {
+  margin-right: 0.5rem;
+  align-content: center;
+  justify-content: center;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#location-icon {
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+#location {
+  color: #060932;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 700;
+  padding-top: 1rem;
+}
+
+#home {
+  color: #060932;
+  background-color: #afccb5;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: right;
+  height: 4rem;
+  padding-right: 2rem;
+}
+
+#continue {
+  background-color: #060932;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+  height: 4rem;
+}
+
+.actions.fixed-bottom {
+  pointer-events: none; /* Allows clicking through empty space to the map */
+  border: none;
+}
+
+#home,
+#continue {
+  pointer-events: auto; /* Re-enables clicking on the buttons themselves */
+  position: absolute;
+  bottom: 60px; /* height from bottom */
+  width: 42%;
+  max-width: 160px;
+  height: 80px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+#home {
+  left: 0;
+  /* Rounds only the top-right and bottom-right corners */
+  border-radius: 0 50px 50px 0;
+  text-align: right;
+  padding-right: 1.5rem;
+  justify-content: flex-end;
+}
+
+#continue {
+  right: 0;
+  /* Rounds only the top-left and bottom-left corners */
+  border-radius: 50px 0 0 50px;
+  text-align: left;
+  padding-left: 1.5rem;
+  justify-content: flex-start;
+}
+
+/* Style for the autocomplete dropdown */
+#enterLocation + .list-group {
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 0.5rem;
+  margin-top: 2px;
+}
+
+/* The main dropdown container */
+.list-group.position-absolute {
+  margin-top: 5px;
+  border-radius: 0.5rem;
+  overflow: hidden; /* Ensures child items don't break rounded corners */
+  border: none;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Individual suggestion items */
+.list-group-item-action {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  padding: 12px 20px;
+  color: #060932; /* Matches your theme navy */
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Hover and active state styling */
+.list-group-item-action:hover {
+  background-color: #afccb5; /* Matching your theme green */
+  color: #060932;
+}
+
+/* Remove border from the last item */
+.list-group-item-action:last-child {
+  border-bottom: none;
+}
+
+/* Media Queries Desktop */
+@media (min-width: 768px) {
+  .navbar-collapse {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 0;
+  }
+
+  .nav-link {
+    color: #ffffff !important;
+    font-size: 1.25rem !important;
+  }
+
+  .nav-link:hover {
+    color: #341bf1 !important;
+    transform: none;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .menu {
+    font-size: 3rem !important;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .responsive-container {
+    width: 100% !important;
+  }
+
+  .prompt {
+    font-size: 2rem;
+    padding: 1.5rem 0;
+    width: 100% !important;
+  }
+
+  /* input text */
+  #enterLocation {
+    height: 4.5rem;
+  }
+
+  #enterLocation::placeholder {
+    font-size: 1.25rem;
+  }
+
+  #OR {
+    font-size: 1.25rem !important;
+    padding: 1rem 0;
+  }
+
+  #find-me {
+    height: 5rem;
+  }
+
+  cta {
+    font-size: 1.25rem;
+    display: inline-block;
+  }
+
+  footer.actions {
+    bottom: 8rem !important;
+    background: transparent !important; /* Makes the bar invisible so it doesn't block the map */
+  }
+  .action-btns,
+  #home,
+  #continue {
+    display: flex !important;
+    justify-content: space-between !important;
+    /* width: 20%;
+    max-width: 25rem;
+    margin: 0 5rem 10rem; */
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  #home {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center;
+    padding-right: 2rem !important;
+    text-align: center !important;
+  }
+
+  #continue {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding-left: 2rem !important;
+    text-align: center !important;
+  }
+
+  .save {
+    bottom: -2rem !important;
+  }
+}
+
+/* XL SCREENS */
+@media (min-width: 1201px) {
+  .heading {
+    font-size: 4rem;
+  }
+
+  #find-me {
+    height: 6rem;
+  }
+
+  cta {
+    font-size: 1.5rem;
+    display: inline-block;
+  }
+
+  footer.actions {
+    bottom: 1rem !important;
+  }
+
+  .action-btns,
+  #home,
+  #continue {
+    width: 20%;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+    margin: 0;
+    bottom: 20rem;
+  }
+
+  #home {
+    left: 0;
+    border-radius: 0 80px 80px 0;
+  }
+
+  #continue {
+    right: 0;
+    border-radius: 80px 0 0 80px;
+  }
+
+  .save {
+    bottom: 3rem !important;
+  }
+}

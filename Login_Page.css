@@ -1,0 +1,150 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+.body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #afccb5;
+  font-family: "Inter", sans-serif;
+  color: #060932;
+  font-size: 1rem;
+}
+
+#topContainer {
+  width: 100%;
+  flex-grow: 1;
+  border-radius: 2.5rem 2.5rem 0 0;
+  background: white;
+  padding-top: 2rem;
+}
+
+.heading {
+  font-size: 3.125rem;
+  font-weight: 700;
+}
+
+.col-auto {
+  font-family: Inter;
+}
+
+.col,
+.form-label,
+#logIn {
+  font-weight: 700;
+  color: #060932;
+}
+
+/* Login tab selected */
+#loginTab {
+  color: #341bf1;
+  text-decoration: underline solid 0.125rem;
+  text-underline-offset: 0.4rem;
+}
+
+#rememberMe,
+#loginEmail::placeholder,
+#loginPassword::placeholder {
+  font-weight: 500;
+  color: #060932;
+}
+
+/* INPUT FIELDS */
+#loginEmail,
+#loginPassword,
+#loginEmail:valid,
+#loginPassword:valid {
+  border: 0.0625rem solid #060932;
+  background-color: #f7f5f5;
+  height: 3.5rem;
+  /* input text styling */
+  color: #060932;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#loginEmail:focus,
+#loginPassword:focus,
+#loginEmail:valid:focus,
+#loginPassword:valid:focus {
+  outline: none;
+  border-color: #341bf1;
+  background-color: #ffffff;
+  box-shadow: none;
+  border-width: 0.125rem;
+}
+
+#togglePassword:hover {
+  color: #341bf1 !important;
+}
+
+.was-validated .form-control:valid {
+  border-color: #341bf1 !important;
+  box-shadow: none !important;
+}
+
+.invalid-feedback {
+  color: #a8982e;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+#checkbox {
+  background-color: #d9d9d9;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* CHECKBOX: ticked state */
+#checkbox:checked {
+  background-color: #341bf1;
+  border: none;
+  /* ensures the checkmark stays white */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+/* removes the border */
+#checkbox:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+#forgotPassword {
+  font-weight: 500;
+  color: #341bf1;
+}
+
+/* Log in Button */
+#logIn {
+  background-color: #060932;
+  color: white;
+}
+
+#altLogin {
+  color: #060932;
+  font-weight: 600;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#exit {
+  font-size: 2rem;
+}
+.icon {
+  font-size: 1.5rem;
+}
