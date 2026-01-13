@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page 7: Review Problem</title>
+    <link rel="stylesheet" href="page7.css" />
+    <script src="storage.js" defer></script>
+    <script src="page7.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anaheim:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Stack+Sans+Headline:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  </head>
+  <body>
+    <!-- PAGE 7: Review form -->
+<section id="page-7">
+  <header class="app-header">
+    <div class="status-bar">
+      <div class="status-left">
+        <span class="time">9:41</span>
+      </div>
+      <div class="status-right">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+<!-- Top navigation bar -->
+    <div class="nav-bar">
+      <div class="nav-left">
+        <h1 class="app-title"> Let's FixIt</h1>
+      </div>
+
+      <button class="menu-hamburger" aria-label="Open Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Slide-out mobile menu -->
+     <nav class="mobile-nav" aria-hidden="false">
+      <button class="mobile-nav-back" aria-label="Close menu">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <ul class="nav-links">
+         <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
+          <li><a href="#"><i class="fa-solid fa-user"></i>Account</a></li>
+          <li><a href="#"><i class="fa-solid fa-circle-question"></i>FAQs</a></li>
+          <li><a href="#"><i class="fa-solid fa-phone"></i>Contact</a></li>
+          <li class="logout"><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+      </ul>
+     </nav> 
+
+     <!-- Nav-Overlay -->
+      <div class="nav-overlay"></div>   
+      </header>
+
+<!-- Card -->
+      <div class="card-container">
+        <div class="card-content">
+        <div class="progress-and-exit">
+          <div class="progress-indicator" data-step="4">
+            <div class="progress" role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0">
+            <div class="progress-fill"></div>
+            </div>
+          </div>
+          <button class="exit-cross" type="button" aria-label="exit-form">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </button>
+        </div>
+
+        <!-- Exit confirmation -->
+         <div class="exit-overlay" aria-hidden="true"></div>
+         <div class="exit-modal" role="dialog" aria-modal="true" aria-hidden="true">
+          <h3 class="exit-title">Leave this report?</h3>
+          <p class="exit-text">Your progress will be lost unless you save a draft.</p>
+
+          <div class="exit-actions">
+            <button class="exit-cancel" type="button">Keep reporting</button>
+            <button class="exit-confirm" type="button">Exit to Home</button>
+          </div>
+         </div>
+
+         
+    <h2 class="report-question">Please review your form:</h2>
+
+     <!-- Review Section -->
+    <dl class="review-list">
+  <div class="review-item">
+    <dt class="review-title">Location</dt>
+    <dd class="review-row">
+      <span class="review-value" id="summary-location">12 Apple St, Wellington</span>
+      <a href="#" class="review-edit">edit</a>
+    </dd>
+  </div>
+
+  <div class="review-item">
+    <dt class="review-title">Category</dt>
+    <dd class="review-row">
+      <span class="review-value" id="summary-category">Graffiti</span>
+      <a href="page5.html" class="review-edit">edit</a>
+    </dd>
+  </div>
+
+  <div class="review-item">
+    <dt class="review-title">Description</dt>
+    <dd class="review-row">
+      <span class="review-value" id="summary-description">Black &amp; white graffiti across the garage door</span>
+      <a href="page5.html" class="review-edit">edit</a>
+    </dd>
+  </div>
+</dl>
+
+
+    <div class="review-block">
+      <span class="review-title">Image(s)</span>
+
+      <div class="image-container">
+        <!-- Upload placeholder card -->
+        <button class="image-card image-upload" type="button">
+          <i class="fa-solid fa-circle-plus"></i>
+          <span class="upload-label">Upload Photo</span>
+        </button>
+
+        <!-- Uploaded image preview card -->
+        <div class="image-card image-preview">
+          <img
+            class="preview-img"
+            src="images/icon/A-two-colour-tag-by-the-late-SINCH-in-the-Melbourne-suburb-of-Balaclava-photo-Allissa-Oughtred 1.png"
+            alt="Uploaded photo"
+          />
+          <button class="remove-image" type="button" aria-label="Remove Image">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Another uploaded image -->
+        <div class="image-card image-preview">
+          <img
+            class="preview-img"
+            src="images/icon/spray-can-img.png"
+            alt="Uploaded photo 2"
+          />
+          <button class="remove-image" type="button" aria-label="Remove Image">
+            <img src="images/icon/gridicons_cross-circle-neonblue.png" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+<!-- Back and Continue buttons -->
+          <div class="actions">
+          <a href="page6.html" class="back-btn" aria-label="back">back
+          <i class="fa-solid fa-chevron-down"></i>
+          </a>
+        <button id="submit-report" class="submit-btn" type="button">submit
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        </div>
+            <!-- Save draft button -->
+    <div class="save-draft">
+      <button class="save-draft-btn" type="button">
+        <span class="save-draft-text">Save draft</span>
+        <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+      </button>
+    </div>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

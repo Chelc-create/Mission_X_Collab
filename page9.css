@@ -1,0 +1,603 @@
+/* ================= RESET & GLOBAL ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+} */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+/* ================= PAGE ================= */
+#page-9 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #060932;
+}
+
+/* ================= HEADER ================= */
+header {
+  width: 100%;
+  color: #ffffff;
+}
+
+/* ---------- Status bar ---------- */
+.status-bar {
+  height: 24px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 12px;
+  color: #ffffff;
+  font-size: 0.85rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.status-left .time {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffff;
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-right i {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* ---------- Navbar ---------- */
+.nav-bar {
+  padding: 40px 0px 0px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #afccb5;
+}
+
+.menu-hamburger {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.menu-hamburger i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* ================= BACK/CLOSE BUTTON ================= */
+.mobile-nav-back {
+  position: absolute;
+  top: 36px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobile-nav-back i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  color: white;
+}
+
+.mobile-nav {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  right: 0;
+
+  width: 120px;
+  height: 100vh;
+
+  background: #060932;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 110px;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+
+  transform: translateX(100%);
+  transition: transform 300ms ease;
+
+  display: flex;
+  margin: 0;
+}
+
+/* When menu is open (JS will toggle this) */
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* ================= NAVIGATION LINKS ================= */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links .logout {
+  margin-top: auto;
+  padding-bottom: 24px;
+}
+
+.nav-links i {
+  margin-bottom: 5px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.nav-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  text-decoration: none;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.nav-links li a {
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* <!-- Overlay --> */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+
+  z-index: 1000;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ================= CARD ================= */
+.card-container {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 40px 40px 0 0;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  margin-top: 20px;
+  flex: 1;
+
+  min-height: 0;
+}
+
+.card-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 12px;
+  min-height: 0;
+}
+
+.card-content {
+  width: min(375px, 100%);
+  margin: 0 auto;
+}
+
+/* <!-- Report Summary --> */
+.report-summary-card {
+  width: min(375px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+}
+/* Make the center column a 2-row stack */
+.report-summary {
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 6px;
+}
+
+.report-number {
+  margin: 0;
+  line-height: 1.1;
+
+  width: auto;
+
+  font-size: 1.5rem;
+  color: #060932;
+}
+
+.summary-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 12px;
+
+  align-items: end; /* key change */
+}
+
+.report-meta {
+  list-style: none; /* removes the bullets */
+  margin: 0; /* removes browser default spacing */
+  padding-left: 0; /* removes indentation */
+  color: #060932;
+  font-weight: 500;
+}
+
+#active-report-category{
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ---------- Back Arrow---------- */
+.back-arrow {
+  width: 2rem;
+  height: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.back-arrow i {
+  font-size: 2rem;
+  color: #060932;
+  line-height: 1;
+  display: block;
+}
+
+.status {
+  color: #a8982e;
+  font-weight: 700;
+}
+
+/* ---------- Images--------- */
+.image-container {
+  width: min(375px, 100%);
+  margin: 0 auto;
+
+  display: flex;
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.image-card-preview {
+  flex: 1; /* both images take equal width */
+  aspect-ratio: 1/1; /* forces square preview */
+  
+  border-radius: 10px;
+  overflow: hidden;
+
+  background-color: #eaeaea;
+}
+
+.image-card-preview img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+/* ================= Chat Block ================= */
+.chat-box {
+  width: min(375px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 12px;
+  align-items: start;
+
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(6, 9, 50, 0.1);
+}
+
+.chat-box-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+
+/* Chat Avatar */
+.chat-avatar {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+.wellington-city-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.circle-check {
+  position: absolute;
+  bottom: -6px;
+  right: -4px;
+
+  font-size: 1rem;
+  color: #341bf1;
+
+  background-color: #ffff;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* ================= Messages ================= */
+.messenger {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #060932;
+}
+
+.time-sent {
+  font-size: 0.8rem;
+  color: #060932;
+  opacity: 0.75;
+  white-space: no-wrap;
+  margin-left: auto; /* pushes time to the right */
+  
+}
+
+.chat-box-message {
+  margin-top: 6px;
+  background-color: #d9d9d9;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.chat-box-text {
+  font-weight: 500;
+  color: #060932;
+  margin: 0;
+  font-size: 0.9rem;
+
+  text-align: left;
+}
+
+/* ================= Message Input ================= */
+.message-input {
+  width: min(375px, 100%);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid #060932;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #ffff;
+
+  flex: 0 0 auto;
+}
+
+.message-field {
+  flex: 1; /* input takes all the remaining space */
+  min-width: 0; /* super important: allows the input to shrink without causing overflow*/
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+}
+
+.message-field::placeholder {
+  color: #060932;
+  opacity: 0.8;
+}
+
+.message-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mic-btn,
+.send-btn {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.mic-btn i,
+.send-btn i {
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #060932;
+}
+
+/* ================= Active States ================= */
+.menu-hamburger,
+.mic-btn,
+.send-btn {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.menu-hamburger:active,
+.mic-btn:active,
+.send-btn:active {
+  transform: scale(0.92);
+  opacity: 0.85;
+}
+
+.back-arrow:active {
+  opacity: 0.7;
+}
+
+/* ================= Media Query ================= */
+@media only screen and (min-width: 768px) {
+  .nav-bar {
+    padding: 48px 24px 0;
+  }
+    .menu-hamburger i {
+    font-size: 1.75rem;
+  }
+    .card-container {
+    width: min(720px, 100%);
+    margin: 20px auto 0;
+    border-radius: 24px 24px 0px 0px;
+    padding: 28px 28px;
+  }
+
+   .report-summary-card,
+  .image-container,
+  .chat-box,
+  .message-input {
+    width: 100%;
+  }
+
+  li{
+    line-height: 1.25;
+  }
+
+   .report-summary-card {
+    column-gap: 20px;
+  }
+
+   .report-number {
+    font-size: 1.75rem;
+  }
+
+    .image-card-preview {
+    border-radius: 20px;
+    aspect-ratio: 16/9;
+    max-height: 160px;
+  }
+
+   .chat-box {
+    margin-top: 28px;
+    padding-top: 18px;
+  }
+
+    .chat-box-message {
+    display: inline-block;
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+    .chat-box-text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+    .message-input {
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  .message-field {
+    font-size: 1rem;
+  }
+
+  .mic-btn,
+  .send-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mic-btn i,
+  .send-btn i {
+    font-size: 1.2rem;
+  }
+}

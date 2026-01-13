@@ -1,0 +1,901 @@
+/* ================= RESET & GLOBAL ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Debugging */
+/* * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+} */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+#page-6 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #060932;
+}
+
+/* ================= HEADER ================= */
+.app-header {
+  width: 100%;
+  color: #ffffff;
+}
+
+/* ================= Status Bar ================= */
+.status-bar {
+  height: 24px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 12px;
+  color: #ffffff;
+  font-size: 0.85rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.status-left .time {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-right i {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* ================= NAVBAR ================= */
+.nav-bar {
+  padding: 40px 0px 0px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #afccb5;
+}
+
+.menu-hamburger {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.menu-hamburger i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* ================= BACK/CLOSE BUTTON ================= */
+
+.mobile-nav-back {
+  position: absolute;
+  top: 36px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobile-nav-back i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  color: white;
+}
+
+.mobile-nav {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  right: 0;
+
+  width: 120px;
+  height: 100vh;
+
+  background: #060932;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 110px;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+
+  transform: translateX(100%);
+  transition: transform 300ms ease;
+
+  display: flex;
+  margin: 0;
+}
+
+/* When menu is open (JS will toggle this) */
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* ================= NAVIGATION LINKS ================= */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links .logout {
+  margin-top: auto;
+  padding-bottom: 24px;
+}
+
+.nav-links i {
+  margin-bottom: 5px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.nav-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  text-decoration: none;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.nav-links li a {
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* ================= NAVBAR OVERLAY ================= */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+
+  z-index: 1000;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ================= CARD ================= */
+.card-container {
+  width: 100%;
+  background-color: #ffffff;
+
+  border-radius: 40px 40px 0px 0px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+  flex: 1;
+}
+
+.card-content {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+/* ================= PROGRESS+EXIT ================= */
+.progress-and-exit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.progress-indicator {
+  flex: 1;
+}
+
+.progress {
+  width: 100%;
+  height: 15px;
+  background: #e9ecef;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 50%;
+  background-color: #341bf1;
+  border-radius: 999px;
+  transition: width 250ms ease;
+}
+
+/* ================= QUIT-FORM ================= */
+.exit-cross {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.exit-cross i {
+  flex: 0 0 auto;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #060932;
+  line-height: 1;
+}
+
+/* ================= EXIT-MODAL ================= */
+.exit-overlay,
+.exit-modal {
+  display: none;
+}
+
+.exit-overlay {
+  position: fixed;
+  inset: 0; /* Cover the entire screen */
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+}
+
+.exit-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  max-width: 480px;
+  margin: 0 auto;
+
+  background: #ffff;
+  color: #060932;
+
+  width: 100%;
+  padding: 20px;
+  border-radius: 16px;
+
+  z-index: 2001;
+  text-align: center;
+}
+
+.exit-modal.active,
+.exit-overlay.active {
+  display: block;
+}
+
+.exit-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.exit-text {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #060932;
+  font-weight: 500;
+}
+
+.exit-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.exit-actions button {
+  flex: 1;
+  height: 48px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+.exit-cancel {
+  background: #060932;
+  color: white;
+  cursor: pointer;
+}
+
+.exit-confirm {
+  background: #afccb5;
+  color: #060932;
+  cursor: pointer;
+}
+
+.exit-actions button:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+
+.report-question {
+  font-size: 1.5rem;
+  color: #060932;
+}
+
+/* ================= TIP ================= */
+.tip {
+  background-color: #fff;
+}
+
+.tip-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #060932;
+}
+
+.tip-button {
+  width: 100%;
+  background-color: #afccb5;
+  border: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+.tip-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.25rem;
+  color: #060932;
+}
+
+.tip-left i {
+  font-size: 1.5rem;
+}
+
+.tip-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.25rem;
+  color: #060932;
+}
+
+.tip-content {
+  margin-top: 0px;
+  padding: 0px 14px;
+  border-radius: 8px;
+  background-color: #afccb5;
+  color: #060932;
+  font-size: 1rem;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  transition: max-height 250ms ease, opacity 200ms ease;
+}
+
+.tip.open .tip-content {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.tip-content p {
+  font-weight: 500;
+  margin: 0;
+}
+
+.tip-content li {
+  font-weight: 500;
+  margin: 0;
+}
+
+.tip-content ul {
+  font-weight: 500;
+  margin: 0;
+}
+
+.tip-chevron {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+/* open = rotate the chevron 180degrees (down + up) */
+.tip-button[aria-expanded="true"] .tip-chevron {
+  transform: rotate(180deg);
+}
+
+/* ================= Photo ================= */
+.photo-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.photo-divider {
+  margin: 0;
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+.image-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  overflow-x: auto; /* enables horizontal scroll */
+  padding-bottom: 8px; /* space for scrollbar */
+  -webkit-overflow-scrolling: touch; /* smoother scrolling*/
+
+  /* Breaking the card container padding */
+  margin-right: -20px;
+  padding-right: 20px;
+  padding-top: 15px;
+
+  margin-top: 0px;
+  border-top: 1px solid rgba(6, 9, 50, 0.12);
+}
+
+/* Hiding image scrollbar */
+.image-container::-webkit-scrollbar {
+  display: none;
+}
+
+.image-text {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+
+  font-weight: 600;
+  color: #060932;
+  opacity: 0.8;
+}
+.image-card {
+  flex: 0 0 145px; /* 0 grow, 0 shrink, fixed width  of 145px */
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed rgba(6, 9, 50, 0.4);
+  background: rgb(245, 243, 243);
+}
+
+#upload-card {
+  flex: 0 0 145px;
+  width: 145px;
+}
+/* ================= Upload Photo ================= */
+.image-upload {
+  border: 1px dashed rgba(6, 9, 50, 0.4); 
+  background: transparent;
+
+  cursor: pointer; /* shows it’s clickable */
+  padding: 0;
+}
+
+.upload-label {
+  color: #341bf1;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.upload-button-and-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.upload-button-and-text i {
+  font-size: 2rem;
+  color: #341bf1;
+  display: block;
+}
+
+/* Delete button on top-right of image */
+.remove-image {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.remove-image i {
+  font-size: 2rem;
+  color: #341bf1;
+  line-height: 1;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Take Photo button */
+.photo-btn {
+  width: 180px;
+  height: 60px;
+  background-color: #341bf1;
+
+  border: none;
+  border-radius: 45px;
+  color: #ffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 8px;
+
+  margin: 0 auto;
+  margin-top: 20px;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 140ms ease, opacity 140ms ease;
+}
+
+.photo-btn:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+
+.photo-btn i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+#camera-section{
+  margin-top: 16px;
+  text-align: center;
+}
+
+#camera-preview{
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+}
+
+#camera-status{
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color:#060932;
+}
+
+/* ================= ACTIONS ================= */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+
+  background: #ffffff;
+  margin-top: 40px;
+
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 12px 0;
+
+  border-top: 1px solid rgba(6, 9, 50, 0.12);
+}
+
+.back-btn,
+.continue-btn {
+  height: 70px;
+  min-width: 160px;
+
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  cursor: pointer;
+}
+
+.back-btn {
+  flex-direction: row-reverse;
+  background-color: #afccb5;
+  color: #060932;
+  border-radius: 0 50px 50px 0;
+}
+
+.back-btn i {
+  display: inline-flex;
+  transform: rotate(90deg);
+  font-size: 1.125rem;
+}
+
+.continue-btn {
+  background-color: #060932;
+  color: #ffffff;
+  border-radius: 50px 0 0 50px;
+}
+
+.continue-btn i {
+  display: inline-flex;
+  transform: rotate(270deg);
+  font-size: 1.125rem;
+}
+
+/* ================= SAVE DRAFT ================= */
+.save-draft {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+
+.save-draft-btn {
+  display: flex;
+  align-items: center;
+
+  flex-direction: row-reverse;
+  gap: 6px;
+  color: #341bf1;
+
+  font-size: 1.125rem;
+  font-weight: 600;
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.saved-feedback {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #060932;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+
+  z-index: 1000;
+}
+
+.saved-feedback.show {
+  opacity: 1;
+}
+a {
+  text-decoration: none;
+}
+
+/* ================= Active States ================= */
+button,
+.menu-hamburger,
+.exit-cross,
+.image-card,
+.back-btn,
+.continue-btn,
+.save-draft-btn,
+.tip-button {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 140ms ease, opacity 140ms ease;
+}
+
+/* Active (tap) feedback */
+.exit-cross:active,
+.menu-hamburger:active,
+.image-card i:active,
+.back-btn:active,
+.continue-btn:active,
+.save-draft-btn:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+.tip-button:active {
+  transform: scale(0.98);
+  opacity: 0.95;
+}
+
+
+/* ================= Media Query ================= */
+@media only screen and (min-width: 768px) {
+
+  .nav-bar{
+    padding: 48px 24px 0;
+  }
+
+   .menu-hamburger i{
+    font-size: 1.75rem;
+  }
+
+  .progress-and-exit {
+    width: 100%;
+  }
+
+  .card-container {
+    width: min(720px, 100%);
+    margin: 20px auto 0;
+    border-radius: 24px 24px;
+    padding: 28px 28px;
+  }
+
+  .card-content {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .report-question {
+    width: 100%;
+    margin: 18px 0 12px;
+  }
+
+  .image-container {
+    gap: 30px;
+    padding-top: 20px;
+  }
+  .image-card,
+  #upload-card {
+    flex: 0 0 200px;
+  }
+
+  .upload-button-and-text i {
+    font-size: 2.75rem;
+  }
+
+  .upload-label {
+    font-size: 1.125rem;
+  }
+
+  .photo-divider {
+    font-size: 1.5rem;
+  }
+  .photo-btn {
+    width: 220px;
+    height: 68px;
+    font-size: 1.3rem;
+  }
+  .photo-btn i {
+    font-size: 1.6rem;
+  }
+
+  .actions {
+    margin-left: -28px;
+    margin-right: -28px;
+    border-top: 1px solid rgba(6, 9, 50, 0.12);
+    padding: 14px 0;
+  }
+
+  .back-btn,
+  .continue-btn {
+    min-width: 180px;
+    font-size: 1.25rem;
+  }
+
+  .back-btn i,
+  .continue-btn i {
+    font-size: 1.5rem;
+  }
+
+  .exit-modal {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+
+    max-width: 500px;
+    border-radius: 20px;
+  }
+}

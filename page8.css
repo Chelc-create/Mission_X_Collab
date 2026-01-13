@@ -1,0 +1,502 @@
+/* ================= RESET & GLOBAL ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+/* ================= PAGE ================= */
+#page-8 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #060932;
+}
+
+/* ================= HEADER ================= */
+header {
+  width: 100%;
+  color: #ffffff;
+}
+
+/* ---------- Status bar ---------- */
+.status-bar {
+  height: 24px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 12px;
+  color: #ffffff;
+  font-size: 0.85rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.status-left .time {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffff;
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-right i {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* ---------- Navbar ---------- */
+.nav-bar {
+  padding: 40px 0px 0px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #afccb5;
+}
+
+.menu-hamburger {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.menu-hamburger i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* ================= BACK/CLOSE BUTTON ================= */
+
+.mobile-nav-back {
+  position: absolute;
+  top: 36px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobile-nav-back i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  color: white;
+}
+
+.mobile-nav {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  right: 0;
+
+  width: 120px;
+  height: 100vh;
+
+  background: #060932;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 110px;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+
+  transform: translateX(100%);
+  transition: transform 300ms ease;
+
+  display: flex;
+  margin: 0;
+}
+
+/* When menu is open (JS will toggle this) */
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* ================= NAVIGATION LINKS ================= */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links .logout {
+  margin-top: auto;
+  padding-bottom: 24px;
+}
+
+.nav-links i {
+  margin-bottom: 5px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.nav-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  text-decoration: none;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.nav-links li a {
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* Overlay */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+
+  z-index: 1000;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ================= Typography ================= */
+h1 {
+  font-size: 2rem;
+  color: #afccb5;
+  margin: 0px;
+}
+
+/* ================= CARD ================= */
+.card-container {
+  width: 100%;
+  flex: 1;
+  background-color: #ffffff;
+
+  border-radius: 40px 40px 0 0;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+  flex: 1;
+}
+
+.card-content {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= PROGRESS INDICATOR ================= */
+.progress-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.progress {
+  width: 100%;
+  height: 15px;
+  background: #e9ecef;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 100%;
+  background-color: #341bf1;
+  border-radius: 999px;
+  transition: width 250ms ease;
+}
+
+/* ================= CONFIRMATION================= */
+/* Confirmation block: never wider than the card */
+.confirmation {
+  margin-top: 20px;
+  width: 100%; /* fill the card, but not exceed it */
+  max-width: 100%;
+}
+
+/* Title and image align to the same inner width */
+.confirmation-title,
+.confirmation-image {
+  width: min(375px, 100%); /* 335px on large screens, shrink on small */
+  margin: 0 auto; /* centers inside the card */
+}
+
+/* Spacing (optional) */
+.confirmation-title {
+  font-size: 1.5rem;
+  color: #060932;
+  margin-top: 16px;
+  text-align: center;
+
+  margin-top: 30px;
+}
+
+.confirmation-image {
+  margin-top: 50px;
+}
+
+/* The key rule: image can’t overflow its box */
+.confirmation-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block; /* removes inline image “extra space” */
+}
+
+/* Safety net: if anything still tries to overflow, crop it */
+.confirmation-image {
+  overflow: hidden;
+}
+
+/* ---------- Report Number ---------- */
+.report-number {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.report-number-label {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.copy-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(6, 9, 50, 0.18);
+
+  background: rgba(0, 0, 0, 0.04);
+  font-weight: 700;
+  color: #a8982e;
+  font-family: "Inter", sans-serif;
+
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.copy-pill-value {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #a8982e;
+}
+
+.copy-pill i {
+  font-size: 0.95em;
+  opacity: 0.75;
+}
+
+.copy-pill:active {
+  transform: scale(0.96);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.copy-pill.copied {
+  border-color: currentColor;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.copy-pill.copied i {
+  opacity: 1;
+}
+
+/* ================= Screen Reader Only ================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  /* Clip: makes the element completely invisible */
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.next-steps {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.report-title {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 1.25rem;
+  color: #a8982e;
+}
+
+.next-steps-content {
+  font-size: 1 rem;
+  color: #060932;
+  font-weight: 600;
+}
+
+a.span-btn {
+  text-decoration: none;
+  color: #341bf1;
+  font-weight: 600;
+}
+
+/* Report Button */
+a.report-btn {
+  width: 235px;
+  height: 65px;
+  border-radius: 40px;
+
+  border: none;
+  background-color: #060932;
+  color: #afccb5;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 30px auto 0;
+  margin-top: auto;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ================= Active States ================= */
+
+/* ===== Tap feedback (PG8) ===== */
+button,
+.menu-hamburger,
+a.report-btn,
+a.span-btn {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+/* Pressed */
+.menu-hamburger:active,
+a#report-btn:active,
+a.span-btn:active {
+  transform: scale(0.92);
+  opacity: 0.85;
+}
+
+/* ================= Media Query ================= */
+@media only screen and (min-width: 768px) {
+  .nav-bar {
+    padding: 48px 24px 0;
+  }
+
+  .menu-hamburger i {
+    font-size: 1.75rem;
+  }
+
+  .progress-and-exit {
+    width: 100%;
+  }
+
+  .card-container {
+    width: min(720px, 100%);
+    margin: 20px auto 0;
+    border-radius: 24px 24px 0px 0px;
+    padding: 28px 28px;
+  }
+
+  .card-content {
+    width: 100%;
+    gap: 28px;
+  }
+
+  .confirmation-title {
+    font-size: 1.75rem;
+  }
+  .next-steps {
+    margin-top: 5px;
+  }
+  .next-steps-content {
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  a.report-btn {
+    width: 280px;
+    height: 70px;
+    font-size: 1.25rem;
+    margin-top: 36px;
+  }
+}

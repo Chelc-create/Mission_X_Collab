@@ -1,0 +1,639 @@
+/* ================= RESET & GLOBAL ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.debug * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+/* ================= PAGE ================= */
+#page-10 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  background-color: #060932;
+}
+
+/* ================= HEADER ================= */
+header {
+  width: 100%;
+  color: #ffffff;
+}
+
+/* ---------- Status bar ---------- */
+.status-bar {
+  height: 24px;
+  width: 100vw;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 12px;
+  color: #ffffff;
+  font-size: 0.85rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.status-left .time {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffff;
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-right i {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* ---------- Navbar ---------- */
+.nav-bar {
+  padding: 40px 0px 0px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #afccb5;
+}
+
+.menu-hamburger {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.menu-hamburger i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* ================= BACK/CLOSE BUTTON ================= */
+.mobile-nav-back {
+  position: absolute;
+  top: 36px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobile-nav-back i {
+  font-size: 1.5rem;
+  line-height: 1;
+
+  color: white;
+}
+
+.mobile-nav {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  right: 0;
+
+  width: 120px;
+  height: 100vh;
+
+  background: #060932;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 110px;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+
+  transform: translateX(100%);
+  transition: transform 300ms ease;
+
+  display: flex;
+  margin: 0;
+
+}
+
+/* When menu is open (JS will toggle this) */
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* ================= NAVIGATION LINKS ================= */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links .logout {
+  margin-top: auto;
+  padding-bottom: 24px;
+}
+
+.nav-links i {
+  margin-bottom: 5px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.nav-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  text-decoration: none;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.nav-links li a {
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* <!-- Overlay --> */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+
+  z-index: 1000;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ================= Typography ================= */
+
+h3 {
+  font-size: 1rem;
+  color: #a8982e;
+}
+
+p {
+  font-size: 1rem;
+  color: #060932;
+}
+
+/* ================= CARD ================= */
+.card-container {
+  width: 100%;
+  background-color: #ffffff;
+
+  border-radius: 40px 40px 0 0;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+  flex: 1;
+}
+
+.card-content {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+
+.search-and-actions{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Let the search bar grow to fill available space */
+.search-input{
+   flex: 1;
+   min-width: 0; /* prevents overflow when next to sort/filter */
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px solid #060932;
+    border-radius: 10px;
+    padding: 8px 10px;
+    background: #ffff; 
+}
+
+.search-field{
+    flex: 1;
+    min-width: 0;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.85rem;
+}
+
+.search-field::placeholder {
+    color: #060932;
+    opacity: 0.8;
+}
+.search-btn,
+.mic-btn{
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.search-btn i,
+.mic-btn i{
+    font-size: 1rem;
+    line-height: 1;
+    color: #060932;
+}
+
+/* Sort and Filter Buttons */
+.sort-and-filter{
+  display: flex;
+  gap: 8px;
+}
+
+.sort-btn,
+.filter-btn{
+  width: 44px;
+height: 44px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border: none;
+background: #afccb5;
+padding: 0;
+border-radius: 50%;
+}
+
+.sort-btn {
+  display: flex;
+}
+
+.sort-btn i,
+.filter-btn i{
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #060932;
+}
+
+.sort-btn.is-active,
+.filter-btn.is-active{
+  background: #e6efe9;
+}
+
+.active-resolved-tab{
+  display: flex;
+  align-items: center;
+
+  background: #B9B8B8;
+  border-radius: 999px;
+  margin-top: 20px;
+}
+
+
+.active-btn,
+.resolved-btn{
+  flex: 1; /* tells each button to take up equal space inside the parent flex container */
+  height: 40px;
+  width: 100%;
+
+  background: none;
+  border: none;
+
+   display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+  font-weight: 700;
+  color: #060932;
+
+  padding: 10px 0;
+  border-radius: 999px;
+  cursor: pointer;
+
+  opacity: 0.8;
+}
+
+.is-active{
+  background: #afccb5;
+  color:#ffff;
+  opacity: 1;
+  box-shadow:  0 1px 2px rgba(0,0,0,0.12) ;
+}
+
+.report-card{
+  gap: 20px;
+
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  column-gap: 12px;
+  align-items: stretch; /* stretch tells every column:
+“Fill the full row height”*/
+  margin-top: 20px;
+
+  background-color: #afccb5;
+  border-radius: 10px;
+  overflow: hidden;
+
+  padding: 10px;
+  text-decoration: none;
+}
+
+
+.image-preview{
+  width: 90px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+}
+
+.preview-img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.report-summary{
+  min-width: 0%; /* prevents text overflow in grid */
+  padding-top: 2px
+}
+
+.report-number{
+  margin: 0 0 6px;
+   font-size: 0.85rem;
+  font-weight: 600;
+opacity: 0.65;
+  color: #060932;
+}
+
+.report-meta{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(6, 9, 50, 0.72); /* lighter */
+  line-height: 1.35;
+}
+
+.report-card[hidden] {
+  display: none;
+}
+
+.status-pill{
+  border-radius: 999px;
+  background-color: white;
+  padding: 6px 10px;
+
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #A8982E;
+  white-space: nowrap;
+
+  align-self: end;
+}
+
+/* Active Report Card  */
+#active-report-category {
+  font-size: 1.05rem;   /* larger than report number */
+  font-weight: 800;
+  color: #060932;
+  margin-bottom: 2px;
+}
+
+#active-report-id {
+  display: block;
+  margin-top: 2px;
+}
+
+/* Resolved Report Card  */
+#resolved-category {
+  font-size: 1.05rem;   /* larger than report number */
+  font-weight: 800;
+  color: #060932;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+#resolved-report-id{
+  display: block;
+}
+
+.report-card[data-status="resolved"] {
+  background-color: #e6efe9; /* lighter, desaturated green */
+  opacity: 0.85;
+}
+
+.report-card[data-status="resolved"]:active {
+  transform: scale(0.995);
+  opacity: 0.8;
+}
+
+.report-card[data-status="resolved"] .status-pill {
+  background-color: rgba(6, 9, 50, 0.08); /* soft dark tint */
+  color: rgba(6, 9, 50, 0.65);
+}
+
+
+
+/* ================= Active States ================= */
+
+.menu-hamburger,
+.mic-btn,
+.sort-btn,
+.filter-btn{
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 120ms ease, opacity 120ms ease;
+}
+
+/* Press Feedback */
+.menu-hamburger:active,
+.mic-btn:active,
+.sort-btn:active,
+.filter-btn:active{
+transform: scale(0.92);
+opacity: 0.85;
+}
+
+
+.active-btn,
+.resolved-btn{
+    transition: transform 120ms ease, opacity 120ms ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.active-btn:active,
+.resolved-btn:active{
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+.report-card{
+    transition: transform 140ms ease, opacity 140ms ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.report-card:active{
+    transform: scale(0.99);
+    opacity: 0.8;
+}
+
+
+/* ================= Focus States================= */
+.menu-hamburger:focus-visible,
+.mic-btn:focus-visible,
+.sort-btn:focus-visible,
+.filter-btn:focus-visible,
+.active-btn:focus-visible,
+.resolved-btn:focus-visible,
+.report-card:focus-visible{
+  outline: 2px solid #341bf1;
+  outline-offset: 2px;
+}
+
+/* ================= Media Query ================= */
+@media only screen and (min-width: 768px) {
+    .nav-bar {
+    padding: 48px 24px 0;
+  }
+    .menu-hamburger i {
+    font-size: 1.75rem;
+  }
+    .card-container {
+    width: min(720px, 100%);
+    margin: 20px auto 0;
+    border-radius: 24px 24px 0px 0px;
+    padding: 28px 28px;
+  }
+
+  #active-report-card,
+  .report-card{
+    padding: 16px;
+    min-height: 140px;
+    grid-template-columns: 120px 1fr auto;
+     column-gap: 16px;
+  }
+
+  .image-preview{
+    width: 120px;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+  }
+
+  .report-number{
+    font-size: 1rem;
+  }
+
+  .report-meta{
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .status-pill{
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+    .search-input {
+    padding: 12px 14px;
+  }
+
+  .search-field {
+    font-size: 1rem;
+  }
+
+    .sort-btn,
+  .filter-btn {
+    width: 55px;
+    height: 55px;
+  }
+
+   .active-resolved-tab,
+   .active-btn,
+   .resolved-btn {
+    height: 48px;
+}
+
+
+}
