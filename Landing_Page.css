@@ -10,33 +10,43 @@ html {
 
 .heading {
   color: #afccb5;
-  font-size: 2.5rem;
   font-weight: 700;
   font-style: normal;
   line-height: 1.2;
+  /* Clamp (min-size, preferred-size, max-size) */
+  font-size: clamp(3rem, 5vw + 1rem, 4rem);
+}
+
+.FixIt {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .paragraph {
-  color: #ffff;
-  font-size: 1rem;
+  color: #ffffff;
+  font-size: clamp(1rem, 0.82rem + 0.91vw, 1.5rem);
   font-weight: 600;
   font-style: normal;
   margin-bottom: 1rem;
 }
 
-.FixIt {
-  color: #341bf1;
-  text-decoration: none;
+.paragraph .text-info {
+  color: #afccb5 !important;
+  display: inline-block; /* Helps some browsers render color better on spans */
 }
 
-.issues {
-  color: #afccb5;
+#buttons-container {
+  width: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
 }
 
 #login,
 #guest,
 #urgent {
   height: 4rem;
+  width: 15rem;
   font-weight: 700;
   font-size: 1rem;
   border: none;
@@ -44,7 +54,6 @@ html {
 
 #login {
   background-color: #341bf1;
-  min-width: 14rem;
 }
 
 #guest {
@@ -53,5 +62,37 @@ html {
 }
 
 #urgent {
-  background-color: #a8982e;
+  background-color: #8a6d10;
+}
+
+/* MEDIA QUERIES */
+
+/* XL SCREENS */
+@media (min-width: 75rem) {
+  .heading {
+    font-size: 4rem;
+  }
+
+  .img-fluid {
+    width: 25rem;
+  }
+
+  .paragraph {
+    font-size: 1.25rem !important;
+  }
+
+  #buttons-container {
+    width: 100%;
+    max-width: 20rem;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  #login,
+  #guest,
+  #urgent {
+    height: 5rem;
+    width: 20rem;
+    font-size: 1.25rem;
+  }
 }

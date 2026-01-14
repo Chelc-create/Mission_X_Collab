@@ -56,12 +56,14 @@
           <div class="collapse navbar-collapse w-100" id="mainNavbar">
             <ul class="navbar-nav ms-auto text-nowrap">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link" href="3.Home_Page.html">Home</a>
               </li>
               <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
               <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Log out</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="2.Login_Page.html">Log out</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -97,7 +99,14 @@
             ></div>
           </div>
           <!-- Close Button -->
-          <i class="icon fa-solid fa-circle-xmark" style="color: #060932"></i>
+          <button type="button" class="btn p-0 border-0" aria-label="Close">
+            <a href="1.Landing_Page.html">
+              <i
+                class="icon fa-solid fa-circle-xmark"
+                style="color: #060932"
+              ></i>
+            </a>
+          </button>
         </div>
 
         <div
@@ -183,8 +192,13 @@
       </div>
       <!-- save draft -->
       <div
-        class="save text-center w-100"
-        style="position: absolute; bottom: 20px"
+        class="save text-center"
+        style="
+          position: absolute;
+          bottom: 2rem;
+          left: 50%;
+          transform: translateX(-50%);
+        "
       >
         <button
           type="button"

@@ -73,15 +73,16 @@ p {
 
 .navbar-nav .nav-link {
   font-family: "Inter";
-  font-weight: 700;
+  font-weight: 600;
   padding: 0.8rem 1rem !important;
+  color: #060932;
   letter-spacing: 0.02em;
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .nav-link:hover {
-  color: #341bf1;
+  color: #afccb5 !important;
 }
 
 #topContainer {
@@ -130,7 +131,7 @@ p {
 /* MEDIA QUERIES */
 
 /* styling for username on smaller screens */
-@media (max-width: 411px) {
+@media (max-width: 25.6875rem) {
   .user-name {
     margin-left: 0; /* Remove extra gap when it's on its own line */
     display: block; /* Force the break on very small screens */
@@ -138,7 +139,7 @@ p {
 }
 
 /* Media Queries Desktop */
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .navbar-collapse {
     background-color: transparent;
     box-shadow: none;
@@ -152,8 +153,7 @@ p {
   }
 
   .nav-link:hover {
-    color: #341bf1 !important;
-    transform: none;
+    color: #afccb5 !important;
   }
 
   .navbar-nav {
@@ -200,8 +200,27 @@ p {
     background-color: #afccb5;
   }
 
+  .card-item:hover {
+    /* 2. Lift the card slightly (negative Y) */
+    transform: translateY(-8px);
+
+    /* 3. Add a soft shadow to emphasize the lift */
+    box-shadow: 0 10px 20px rgba(6, 9, 50, 0.15);
+  }
+
   #circle-plus {
     font-size: 8rem !important;
+  }
+
+  /* Ensure the circle has a transition too */
+  #circle-icon {
+    transition: all 0.3s ease;
+  }
+
+  /* When the parent CARD is hovered, change the CIRCLE */
+  .card-item:hover #circle-plus {
+    transform: scale(1.1);
+    color: white;
   }
 
   #hero-image {
@@ -219,7 +238,7 @@ p {
 }
 
 /* XL SCREENS */
-@media (min-width: 1201px) {
+@media (min-width: 75rem) {
   .heading {
     font-size: 4rem;
   }
