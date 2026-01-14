@@ -1,9 +1,4 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
+/* 1. GLOBAL & INHERITANCE */
 html,
 .body {
   margin: 0;
@@ -14,132 +9,155 @@ html,
   min-height: 100vh;
   background-color: #afccb5;
   font-family: "Inter", sans-serif;
-  color: #060932;
+  color: #060932 !important;
   font-size: 1rem;
 }
 
 #topContainer {
   width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
   flex-grow: 1;
   border-radius: 2.5rem 2.5rem 0 0;
   background: white;
   padding-top: 2rem;
 }
 
+/* 2. TYPOGRAPHY GROUPS */
 .heading {
   font-size: 3.125rem;
   font-weight: 700;
 }
 
-.col-auto {
-  font-family: Inter;
-}
-
-.col,
+/* Bold Group */
 .form-label,
-#logIn {
-  font-weight: 700;
-  color: #060932;
+.col,
+.form-check-label a {
+  font-weight: 700 !important;
+  text-decoration: none;
+  color: #060932 !important;
 }
 
-/* Login tab selected */
-#loginTab {
-  color: #341bf1;
+/* Semi-Bold Group */
+#rememberMe,
+#altLogin,
+#forgotPassword,
+.dropdown-item {
+  font-weight: 600 !important;
+  color: #060932 !important;
+}
+
+/* Medium Weight Group */
+.form-check-label,
+.was-validated .invalid-feedback,
+.form-control[required]::placeholder {
+  font-weight: 500;
+  color: #060932 !important;
+}
+
+/* 3. INTERACTIVE ELEMENTS */
+#loginTab,
+#registerTab {
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 5px;
+}
+
+.dropdown-item:hover {
+  color: #ffffff !important;
+  background-color: #341bf1 !important;
+}
+
+.active-tab {
+  color: #341bf1 !important;
+  font-weight: bold !important;
   text-decoration: underline solid 0.125rem;
   text-underline-offset: 0.4rem;
 }
 
-#rememberMe,
-#loginEmail::placeholder,
-#loginPassword::placeholder {
-  font-weight: 500;
-  color: #060932;
+#forgotPassword {
+  color: #341bf1 !important;
 }
 
-/* INPUT FIELDS */
-#loginEmail,
-#loginPassword,
-#loginEmail:valid,
-#loginPassword:valid {
-  border: 0.0625rem solid #060932;
-  background-color: #f7f5f5;
-  height: 3.5rem;
-  /* input text styling */
-  color: #060932;
-  font-family: "Inter";
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-#loginEmail:focus,
-#loginPassword:focus,
-#loginEmail:valid:focus,
-#loginPassword:valid:focus {
-  outline: none;
-  border-color: #341bf1;
-  background-color: #ffffff;
-  box-shadow: none;
-  border-width: 0.125rem;
-}
-
+.form-check-label a:hover,
 #togglePassword:hover {
   color: #341bf1 !important;
 }
 
-.was-validated .form-control:valid {
-  border-color: #341bf1 !important;
-  box-shadow: none !important;
+/* FORM CONTROLS */
+.form-control[required] {
+  border: 0.0625rem solid #060932;
+  background-color: #f7f5f5;
+  height: 3.5rem;
+  font-weight: 600;
+  color: inherit;
 }
 
-.invalid-feedback {
-  color: #a8982e;
-}
-
-button {
-  border: none;
-  background-color: transparent;
-}
-
-#checkbox {
-  background-color: #d9d9d9;
-  border: none;
-  transition: all 0.2s ease-in-out;
-}
-
-/* CHECKBOX: ticked state */
-#checkbox:checked {
-  background-color: #341bf1;
-  border: none;
-  /* ensures the checkmark stays white */
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
-}
-/* removes the border */
-#checkbox:focus {
-  border: none;
+.form-control[required]:focus {
   outline: none;
+  border: 0.125rem solid #341bf1;
+  background-color: #ffffff;
   box-shadow: none;
 }
 
-#forgotPassword {
-  font-weight: 500;
-  color: #341bf1;
+.form-control:not(:placeholder-shown) {
+  /* This applies when text in entered in input */
+  background-color: #ffffff;
+  border-color: #060932;
 }
 
-/* Log in Button */
-#logIn {
+/* 5. VALIDATION (Optimized) */
+.was-validated .form-control:invalid {
+  border: 2px solid #8a6d10 !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%238a6d10'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%238a6d10' stroke='none'/%3e%3c/svg%3e") !important; /* Custom gold icon */
+}
+
+.was-validated .form-control:invalid:focus {
+  border-color: #8a6d10 !important;
+  box-shadow: 0 0 0 0.25rem rgba(168, 152, 46, 0.25) !important;
+}
+
+.was-validated .invalid-feedback {
+  color: #8a6d10 !important;
+  font-size: 1rem;
+}
+
+.was-validated .form-control:valid {
+  border: 2px solid #341bf1 !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23341bf1' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") !important; /* Custom blue icon */
+  box-shadow: none !important;
+}
+
+/* Prevent label color changes during validation */
+.was-validated .form-check-input:invalid ~ .form-check-label,
+.was-validated .form-check-input:valid ~ .form-check-label {
+  color: #060932 !important;
+}
+
+/* 6. BUTTONS & ICONS */
+#logIn,
+#mainSubmitBtn {
   background-color: #060932;
   color: white;
+  font-weight: 700;
 }
 
-#altLogin {
-  color: #060932;
-  font-weight: 600;
+#checkbox,
+#terms {
+  background-color: #d9d9d9;
+  border: none;
+  transition: 0.2s;
 }
 
-.icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#checkbox:checked,
+#terms:checked {
+  background-color: #341bf1;
+}
+
+#checkbox:focus,
+#terms:focus {
+  box-shadow: none;
 }
 
 #exit {
@@ -147,4 +165,90 @@ button {
 }
 .icon {
   font-size: 1.5rem;
+}
+
+/* 7. MEDIA QUERIES */
+@media (min-width: 48rem) {
+  .heading {
+    font-size: 4rem;
+  }
+
+  .form-label,
+  .col,
+  .form-check-label a,
+  #rememberMe,
+  #altLogin,
+  .dropdown-item,
+  .form-check-label,
+  .was-validated .invalid-feedback,
+  .form-control[required]::placeholder,
+  .form-control[required],
+  #togglePassword {
+    font-size: 1.25rem !important;
+  }
+
+  #forgotPassword {
+    color: #341bf1 !important;
+  }
+
+  /* INTERACTIVE ELEMENTS */
+  #loginTab,
+  #registerTab {
+    cursor: pointer;
+    transition: 0.3s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+    font-size: 1.25rem !important;
+  }
+
+  /* Make the button slightly larger for desktop */
+  .dropdown button {
+    padding: 0.5rem 1.8rem !important;
+    font-size: 1.25rem !important;
+    border-radius: 1rem !important;
+  }
+
+  /* Ensure the flag scales with the larger button */
+  .dropdown button img {
+    width: 1.7rem !important;
+    height: 1.75rem !important;
+  }
+
+  /* desktop hover effect for menu items */
+  .dropdown-item {
+    padding: 0.6rem 1.5rem !important;
+  }
+
+  .active-tab {
+    color: #341bf1 !important;
+    font-weight: bold !important;
+    text-decoration: underline solid 0.18rem;
+    text-underline-offset: 0.5rem;
+  }
+
+  /* 6. BUTTONS & ICONS */
+  #logIn,
+  #mainSubmitBtn,
+  #checkbox,
+  #terms {
+    font-size: 1.25rem !important;
+  }
+
+  #logIn,
+  #mainSubmitBtn {
+    height: 5rem;
+    align-content: center;
+  }
+
+  #exit {
+    font-size: 2.3rem;
+    color: #060932 !important;
+  }
+  .icon {
+    font-size: 2rem;
+  }
+
+  .fa-apple {
+    font-size: 2.3rem !important;
+  }
 }

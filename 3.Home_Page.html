@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home_Page</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="Home_Page.css" />
     <link
       rel="stylesheet"
@@ -54,14 +54,16 @@
           </button>
           <!-- collapsible content -->
           <div class="collapse navbar-collapse w-100" id="mainNavbar">
-            <ul class="navbar-nav ms-auto text-nowrap">
+            <ul class="navbar-nav ms-auto text-nowrap pt-4">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link active" href="3.Home_Page.html">Home</a>
               </li>
               <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
               <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Log out</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="2.Login_Page.html">Log out</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -75,42 +77,58 @@
       style="gap: 2.5rem; border-radius: 2rem 2rem 0 0"
     >
       <!-- CARDS/TILES -->
-      <div class="card-item">
+      <div class="card-item shadow-lg">
         <div class="position-relative h-100">
-          <img id="hero-image" src="/traceys_images/Man making call.png" />
-          <div
-            class="card-img-overlay d-flex flex-column align-items-center justify-content-center"
-          >
-            <!-- Link to next page -->
-            <a href="4.Location.html" class="text-decoration-none text-reset">
+          <!-- Link to next page -->
+          <a href="4.Location.html" class="text-decoration-none text-reset">
+            <img
+              id="hero-image"
+              src="/traceys_images/Man making call.png"
+              alt="a man making a call"
+            />
+            <div
+              class="card-img-overlay d-flex flex-column align-items-center justify-content-center"
+            >
               <i
                 id="circle-plus"
                 class="fa-solid fa-circle-plus"
                 style="color: #060932; font-size: 6.8rem"
               ></i>
-            </a>
-            <p class="mt-2 mb-0 fw-bold">Report an issue</p>
-          </div>
+              <p class="mt-2 mb-0 fw-bold">Report an issue</p>
+            </div>
+          </a>
         </div>
       </div>
 
-      <div class="card-item">
+      <div class="card-item shadow-lg">
         <div class="card-title mb-0"><p class="mb-0">My Reports</p></div>
-        <img class="card-img" src="/traceys_images/Graffiti Image.png" />
+        <img
+          class="card-img"
+          src="/traceys_images/Graffiti Image.png"
+          alt="an garage door with graffit on it"
+        />
       </div>
 
-      <div class="card-item">
+      <div class="card-item shadow-lg">
         <div class="card-title mb-0">
           <p class="mb-0">Reports in your area</p>
         </div>
-        <img class="card-img" src="/traceys_images/Lady-on-phone.jpg" />
+        <img
+          class="card-img"
+          src="/traceys_images/Lady-on-phone.jpg"
+          alt="a lady making a report on her phone"
+        />
       </div>
 
-      <div class="card-item">
+      <div class="card-item shadow-lg">
         <div class="card-title mb-0">
           <p class="mb-0">Active Projects</p>
         </div>
-        <img class="card-img" src="/traceys_images/community-garden.jpg" />
+        <img
+          class="card-img"
+          src="/traceys_images/community-garden.jpg"
+          alt="a group of ladies in the garden"
+        />
       </div>
     </main>
   </body>

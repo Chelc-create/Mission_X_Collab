@@ -43,6 +43,37 @@ html {
   font-size: 2rem;
 }
 
+/* Remove the outline/glow from the menu button when clicked or active */
+.navbar-toggler,
+.navbar-toggler:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0;
+}
+
+/* The Mobile Dropdown Menu Container */
+.navbar-collapse {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.navbar-nav .nav-link {
+  font-family: "Inter";
+  font-weight: 600;
+  padding: 0.8rem 1rem !important;
+  letter-spacing: 0.02em;
+  color: #060932;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-nav:hover .nav-link:hover {
+  color: #341bf1;
+}
+
 #topContainer {
   width: 100%;
   flex-grow: 1;
@@ -130,7 +161,7 @@ cta {
 }
 
 #location-icon {
-  font-size: 1.5rem;
+  font-size: 1rem;
   align-items: center;
 }
 
@@ -143,7 +174,7 @@ cta {
 }
 
 .error-text {
-  color: #a8982e !important;
+  color: #8a6d10 !important;
   padding: 5px;
 }
 
@@ -226,14 +257,14 @@ cta {
   font-family: "Inter", sans-serif;
   font-size: 0.95rem;
   padding: 12px 20px;
-  color: #060932; /* Matches your theme navy */
+  color: #060932;
   border: none;
   border-bottom: 1px solid #f0f0f0;
 }
 
 /* Hover and active state styling */
 .list-group-item-action:hover {
-  background-color: #afccb5; /* Matching your theme green */
+  background-color: #afccb5;
   color: #060932;
 }
 
@@ -243,7 +274,7 @@ cta {
 }
 
 /* Media Queries Desktop */
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .navbar-collapse {
     background-color: transparent;
     box-shadow: none;
@@ -257,7 +288,7 @@ cta {
   }
 
   .nav-link:hover {
-    color: #341bf1 !important;
+    color: #afccb5 !important;
     transform: none;
   }
 
@@ -288,6 +319,7 @@ cta {
   /* input text */
   #enterLocation {
     height: 4.5rem;
+    font-size: 1.25rem;
   }
 
   #enterLocation::placeholder {
@@ -303,12 +335,21 @@ cta {
     height: 5rem;
   }
 
+  .icon {
+    font-size: 2.3rem;
+  }
+
+  #location-icon {
+    font-size: 1.5rem;
+  }
+
   .error-text {
     font-size: 1.25rem !important;
     padding: 5px;
   }
 
-  cta {
+  cta,
+  i {
     font-size: 1.25rem;
     display: inline-block;
   }
@@ -323,9 +364,6 @@ cta {
   #continue {
     display: flex !important;
     justify-content: space-between !important;
-    /* width: 20%;
-    max-width: 25rem;
-    margin: 0 5rem 10rem; */
     padding-top: 3.5rem !important;
     padding-bottom: 3.5rem !important;
   }
@@ -346,13 +384,52 @@ cta {
     text-align: center !important;
   }
 
+  /* Target the save container specifically */
   .save {
-    bottom: -2rem !important;
+    position: fixed !important; /* Fixed ensures it ignores the footer's bottom margin */
+    bottom: 0 !important; /* Forces it to the absolute bottom */
+    left: 50% !important;
+    transform: translateX(-50%);
+
+    /* Visuals to make it look like a tab touching the bottom */
+    background-color: #ffffff !important;
+    border-radius: 100px 100px 0 0;
+    padding: 30px !important; /* Bottom padding is small to stay flush */
+    height: auto !important; /* Let content dictate height */
+    z-index: 1050; /* Ensure it stays above the map */
+    pointer-events: auto; /* Ensure you can click it */
+  }
+
+  /* Remove any bottom margin from the button inside so it doesn't push the tab up */
+  #save-draft {
+    margin-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Individual suggestion items */
+  .list-group-item-action {
+    font-family: "Inter", sans-serif;
+    font-size: 1.25rem;
+    padding: 12px 20px;
+  }
+
+  /* Hover and active state styling */
+  .list-group-item-action:hover {
+    background-color: #341bf1 !important;
+    color: #ffffff !important;
+  }
+
+  /* Remove border from the last item */
+  .list-group-item-action:last-child {
+    border-bottom: none;
   }
 }
 
 /* XL SCREENS */
-@media (min-width: 1201px) {
+/* 
+@media (min-width: 75rem) {
   .heading {
     font-size: 4rem;
   }
@@ -366,23 +443,23 @@ cta {
     padding: 5px;
   }
 
-  cta {
+  cta,
+  i {
     font-size: 1.5rem;
     display: inline-block;
   }
 
   footer.actions {
-    bottom: 1rem !important;
+    bottom: 8rem !important;
   }
 
   .action-btns,
   #home,
   #continue {
-    width: 20%;
+    width: 40%;
     padding-top: 4rem !important;
     padding-bottom: 4rem !important;
     margin: 0;
-    bottom: 20rem;
   }
 
   #home {
@@ -394,8 +471,4 @@ cta {
     right: 0;
     border-radius: 80px 0 0 80px;
   }
-
-  .save {
-    bottom: 3rem !important;
-  }
-}
+} */
