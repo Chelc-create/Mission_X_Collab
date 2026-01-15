@@ -105,9 +105,11 @@ html,
   /* This applies when text in entered in input */
   background-color: #ffffff;
   border-color: #060932;
+  color: #060932;
+  font-weight: 700;
 }
 
-/* 5. VALIDATION (Optimized) */
+/* VALIDATION (Optimized) */
 .was-validated .form-control:invalid {
   border: 2px solid #8a6d10 !important;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%238a6d10'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%238a6d10' stroke='none'/%3e%3c/svg%3e") !important; /* Custom gold icon */
@@ -135,7 +137,7 @@ html,
   color: #060932 !important;
 }
 
-/* 6. BUTTONS & ICONS */
+/* BUTTONS & ICONS */
 #logIn,
 #mainSubmitBtn {
   background-color: #060932;
@@ -187,6 +189,14 @@ html,
     font-size: 1.25rem !important;
   }
 
+  .form-control[required] {
+    height: 4.2rem;
+  }
+
+  .form-label {
+    margin-top: 1rem;
+  }
+
   #forgotPassword {
     color: #341bf1 !important;
   }
@@ -226,7 +236,7 @@ html,
     text-underline-offset: 0.5rem;
   }
 
-  /* 6. BUTTONS & ICONS */
+  /* BUTTONS & ICONS */
   #logIn,
   #mainSubmitBtn,
   #checkbox,

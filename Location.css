@@ -134,9 +134,17 @@ main {
 
 #enterLocation:focus {
   border: 2px solid #341bf1 !important;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   box-shadow: none;
   outline: none;
+}
+
+.form-control:not(:placeholder-shown) {
+  /* This applies when text in entered in input */
+  background-color: #ffffff !important;
+  border-color: #060932;
+  color: #060932 !important;
+  font-weight: 700 !important;
 }
 
 #OR {
