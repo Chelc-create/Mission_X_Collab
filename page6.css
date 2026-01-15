@@ -245,7 +245,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  gap: 15px;
+  gap: 0px;
 }
 
 /* ================= PROGRESS+EXIT ================= */
@@ -392,11 +392,13 @@ body {
 .report-question {
   font-size: 1.5rem;
   color: #060932;
+  margin-bottom: 10px;
 }
 
 /* ================= TIP ================= */
 .tip {
   background-color: #fff;
+
 }
 
 .tip-title {
@@ -441,7 +443,8 @@ body {
 
 .tip-content {
   margin-top: 0px;
-  padding: 0px 14px;
+
+  padding: 10px 14px;
   border-radius: 8px;
   background-color: #afccb5;
   color: #060932;
@@ -459,17 +462,9 @@ body {
   opacity: 1;
 }
 
-.tip-content p {
-  font-weight: 500;
-  margin: 0;
-}
-
-.tip-content li {
-  font-weight: 500;
-  margin: 0;
-}
-
-.tip-content ul {
+.tip-content p,
+.tip-content li,
+.tip-content ul{
   font-weight: 500;
   margin: 0;
 }
@@ -490,6 +485,11 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 25px;
+
+  margin-top: 0px;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(6, 9, 50, 0.12);
 }
 
 .photo-divider {
@@ -502,8 +502,12 @@ body {
   display: flex;
   justify-content: flex-start;
   gap: 16px;
+
   overflow-x: auto; /* enables horizontal scroll */
   padding-bottom: 8px; /* space for scrollbar */
+
+  scrollbar-width: thin;
+  scrollbar-color: #c7c9d1 transparent;
   -webkit-overflow-scrolling: touch; /* smoother scrolling*/
 
   /* Breaking the card container padding */
@@ -512,13 +516,21 @@ body {
   padding-top: 15px;
 
   margin-top: 0px;
-  border-top: 1px solid rgba(6, 9, 50, 0.12);
+}
+
+.image-container::-webkit-scrollbar{
+height: 6px;
+}
+
+.image-container::-webkit-scrollbar-thumb{
+  background-color: rgba(6, 9, 50, 0.25);
+  border-radius: 999px;
 }
 
 /* Hiding image scrollbar */
-.image-container::-webkit-scrollbar {
+/* .image-container::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .image-text {
   display: flex;
@@ -632,7 +644,7 @@ body {
   gap: 8px;
 
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 35px;
   cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
@@ -644,6 +656,17 @@ body {
   opacity: 0.8;
 }
 
+/* Disabled camera button style */
+.photo-btn.is-disabled{
+  background: #d9d9d9;
+  color: #807e7e;
+  cursor: none;
+  opacity: 0.7;
+}
+
+.photo-btn.is-disabled{
+  opacity: 0.7;
+}
 
 .photo-btn i {
   font-size: 1.5rem;
@@ -665,6 +688,7 @@ body {
   margin-top: 8px;
   font-size: 0.9rem;
   color:#060932;
+  font-weight: 600;
 }
 
 /* ================= ACTIONS ================= */
@@ -859,6 +883,7 @@ button,
   .upload-label {
     font-size: 1.125rem;
   }
+  
 
   .photo-divider {
     font-size: 1.5rem;

@@ -11,15 +11,17 @@ console.log("PARSED lastReport", lastReport);
 const idEl = document.querySelector("#active-report-id");
 const categoryEl = document.querySelector("#active-report-category");
 const locationEl = document.querySelector("#active-report-location");
+const descriptionEl = document.querySelector("#active-report-description");
 const dateEl = document.querySelector("#active-report-date");
 const statusEl = document.querySelector("#active-report-status");
 
 if ( idEl && categoryEl && locationEl && dateEl && statusEl){
     if (lastReport) {
-        idEl.textContent = lastReport.reportId || "Report Id: - ";
-        categoryEl.textContent = lastReport.category || "Category: -";
-        locationEl.textContent = lastReport.location || "Location: -";
+        idEl.textContent = lastReport.reportId || "-";
+        categoryEl.textContent = lastReport.category || "-";
+        locationEl.textContent = lastReport.location || "-";
         statusEl.textContent = lastReport.statusId || "Pending";
+        descriptionEl.innerHTML = lastReport.description || "-";
     }
 
     if (lastReport.submittedAt) {

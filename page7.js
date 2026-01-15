@@ -1,86 +1,5 @@
 console.log("hello world")
 
-// NavBar
-// Menu Hamburger:
-const menuButton = document.querySelector('.menu-hamburger');
-// Mobile Nav:
-const mobileNav = document.querySelector('.mobile-nav');
-//Overlay:
-const navOverlay = document.querySelector(`.nav-overlay`);
-// Close Menu:
-const mobileNavClose = document.querySelector('.mobile-nav-back');
-
-
-menuButton.addEventListener('click', () => {
-    mobileNav.classList.toggle('open');
-    navOverlay.classList.toggle('active');
-})
-
-navOverlay.addEventListener('click', () =>{
-    mobileNav.classList.remove('open');
-    navOverlay.classList.remove('active');
-})
-
-mobileNavClose.addEventListener('click', () => {
-    mobileNav.classList.remove('open');
-    navOverlay.classList.remove('active');
-})
-
-
-/* ================= Progress Bar ================= */
-const progressIndicator = document.querySelector('.progress-indicator');
-const progressFill = document.querySelector('.progress-fill');
-const progress = document.querySelector('.progress');
-
-const currentStep = Number(progressIndicator.dataset.step);
-console.log(currentStep);
-const totalSteps = 5;
-console.log(totalSteps)
-
-const progressPercentage =
-((currentStep - 1) / (totalSteps - 1)) * 100;
-console.log(progressPercentage)
-
-progressFill.style.width = progressPercentage + '%';
-progress.setAttribute('aria-valuenow', Math.round(progressPercentage));
-
-/* ================= Exit Button ================= */
-const exitButton = document.querySelector('.exit-cross');
-const exitOverlay = document.querySelector('.exit-overlay')
-const exitModal = document.querySelector('.exit-modal')
-console.log(exitButton)
-const keepEditingButton = document.querySelector('.exit-cancel')
-
-exitButton.addEventListener('click', () => {
-    console.log('exit clicked')
-    exitOverlay.classList.add('active');
-    exitModal.classList.add('active');
-})
-
-exitOverlay.addEventListener('click', () => {
-    exitOverlay.classList.remove('active');
-    exitModal.classList.remove('active');
-})
-
-if (keepEditingButton) {
-  keepEditingButton.addEventListener('click', () => {
-    exitOverlay.classList.remove('active');
-    exitModal.classList.remove('active');
-  });
-}
-
-/* ================= Exit to Home Button ================= */
-
-const toHomeButton = document.querySelector('.exit-confirm');
-if (toHomeButton) {
-  toHomeButton.addEventListener('click', () => {
-    exitOverlay.classList.remove('active');
-    exitModal.classList.remove('active');
-    saveDraft();
-    window.location.href = 'home.html';
-  });
-}
-
 
 /* ================= Summary Pieces ================= */
 const locationE1 = document.querySelector("#summary-location");
@@ -101,11 +20,104 @@ descriptionE1.textContent = report.description || "Not provided";
 
 
 
-/* ================= Generating Report ID ================= */
+/* ================= Upload Photo ================= */
+const uploadInput = document.getElementById("photo-upload");
+const imageContainer = document.getElementById("image-container");
+const uploadCard = document.getElementById("upload-card");
+
+const MAX_PHOTOS = 3;
+
+function getPhotoCount() {
+  return imageContainer.querySelectorAll(".photo-card").length;
+}
+console.log("photo count", getPhotoCount());
+
+function updateUploadCardVisibility() {
+  // Check if limit reached:
+  const atMax = getPhotoCount() >= MAX_PHOTOS;
+
+  if (atMax) {
+    if (uploadCard.parentElement) {
+      uploadCard.remove();
+    }
+  } else {
+    if (!imageContainer.contains(uploadCard)) {
+      imageContainer.prepend(uploadCard);
+    }
+  }
+}
+
+// 4) Build one photo preview card (image + remove button)
+function createPhotoCard(src) {
+
+  const card = document.createElement("div");
+  card.className = "image-card photo-card image-preview";
+
+  const img = document.createElement("img");
+  img.src = src;
+  img.alt = "Uploaded Photo";
+  img.className = "preview-img";
+
+  // Remove image button
+  const removeBtn = document.createElement("button");
+  removeBtn.type = "button";
+  removeBtn.className = "remove-image";
+  removeBtn.setAttribute("aria-label", "Remove image");
+  removeBtn.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+
+  // 4) Assemble the card
+  card.appendChild(img);
+  card.appendChild(removeBtn);
+
+  return card;
+}
+updateUploadCardVisibility();
+
+uploadInput.addEventListener("change", () => {
+  const file = uploadInput.files[0];
+  if (!file) return;
+
+  if (getPhotoCount() >= MAX_PHOTOS) {
+    uploadInput.value = "";
+    return;
+  }
+
+ 
+  const imageURL = URL.createObjectURL(file); 
+  const newCard = createPhotoCard(imageURL); // Build a new preview card using that URL
+
+  imageContainer.appendChild(newCard); // Add the new photo to the end (upload card stays first)
+
+  updateUploadCardVisibility(); // Hide upload card if we just reached the max
+  uploadInput.value = ""; // Reset input so selecting the same file again will still trigger change
+});
+
+// 7) Delete handler (event delegation) so it works for dynamically added cards
+imageContainer.addEventListener("click", (event) => {
+  const deleteBtn = event.target.closest(".remove-image"); // Works even if user clicks the icon inside the button
+  if (!deleteBtn) return; // If click wasn’t on a delete button, ignore
+
+  const card = deleteBtn.closest(".photo-card"); // Find the uploaded photo card that owns this delete button
+  if (!card) return;
+
+  const img = card.querySelector("img"); // Grab the image so we can clean up its blob URL
+  if (img && img.src && img.src.startsWith("blob:")) {
+    // Only revoke URLs we created with createObjectURL
+    URL.revokeObjectURL(img.src); // Free memory used by the blob URL
+  }
+
+  card.remove(); //Remove the photo card from the DOM
+  updateUploadCardVisibility(); // Bring upload card back if we’re now under the max
+});
+
+
+
+
+/* ================= Generating Report ID⭐ ================= */ 
 
 // This function creates and returns a unique report ID
 function generateReportId() {
-//Create a Date object representing the current date and time
+//Create a Date object representing the current date and time‼️
   const date = new Date();
 //Get the full year from the date
   const year = date.getFullYear();    //2026
@@ -116,7 +128,7 @@ function generateReportId() {
   // convert it to a string, and ensure it is always two digits
  const day = String(date.getDate()).padStart(2,"0");
 
-   // Generate a random number between 0 and 1,
+   // Generate a random number between 0 and 1,‼️
   // convert it to a base-36 string (letters + numbers)
  const randomPart = Math.random()
  .toString(36) // Convert number to alphanumeric string (0-9)and (a-z) =36
@@ -132,14 +144,14 @@ function generateReportId() {
 
   // Combine all parts into a single report ID string and return it
   //       FIX-YYYYMMDD-ABCDE
-  return `FIX-${year}${month}${day}-${randomPart}`;
+  return `FIX-${year}${month}${day}-${randomPart}`; //
 
 }
 
 
 
 
-/* ================= Submit Report ================= */
+/* ================= Submit Report⭐ ================= */
 const submitBtn = document.querySelector("#submit-report");
 
 if (submitBtn) {
@@ -154,7 +166,7 @@ if (submitBtn) {
       ...draftReport,
       reportId: generateReportId(),
       submittedAt: new Date().toISOString(),
-      status: "Received"
+      status: "Pending"
     };
 
     console.log("✅ submittedReport object:", submittedReport);

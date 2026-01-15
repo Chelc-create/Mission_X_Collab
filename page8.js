@@ -23,7 +23,7 @@ if (reportIdEl) { // only run if this page has the report-id element
   }
 }
 
-// ---------- 2) Copy button logic ----------
+// ---------- CLIPBOARD API ⭐----------
 
 if (reportIdEl && copyBtn) { // only run if both the ID and button exist
 

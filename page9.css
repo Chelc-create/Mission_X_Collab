@@ -290,13 +290,19 @@ header {
   list-style: none; /* removes the bullets */
   margin: 0; /* removes browser default spacing */
   padding-left: 0; /* removes indentation */
-  color: #060932;
-  font-weight: 500;
+  line-height: 1.4;
 }
 
-#active-report-category{
+.active-report-title{
+  color: #060932;
+  font-size: 0.85;
+}
+#active-report-category,
+#active-report-location,
+#active-report-description,
+#active-report-date{
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ---------- Back Arrow---------- */
@@ -373,7 +379,7 @@ a {
 
   margin-top: 20px;
   padding-top: 16px;
-  border-top: 1px solid rgba(6, 9, 50, 0.1);
+  border-top: 1px solid rgba(6, 9, 50, 0.1);  /* ⭐ */
 }
 
 .chat-box-title {

@@ -1,5 +1,5 @@
 console.log("hello world");
-/* ================= Search Input ================= */
+/* ================= Category Dropdown/ Search Input ================= */
 
 const dropdown = document.querySelector('.category-dropdown');
 const issueInput = document.querySelector('#issue');
@@ -24,7 +24,7 @@ if (dropdown && issueInput && issueArrow && issueMenu) {
     else closeMenu();
   }
 
-  issueInput.addEventListener('click', (e) => {
+  issueInput.addEventListener('click', (e) => { //⭐
     e.stopPropagation(); 
     openMenu();
   });
@@ -99,7 +99,7 @@ function saveDraft() {
 }
 
 
-/* ================= Autosave ================= */
+/* ================= Autosave⭐ ================= */
 
 // Small helper: run a function after the user stops typing for X ms
 function debounce(fn, delay= 400) {
@@ -160,7 +160,7 @@ function updateCharacterCount() {
   // Reset states first
   charCountText.classList.remove('is-warning', 'is-danger');
 
-  // Warning State
+  // Warning State⭐
   if (remaining <= 10){
     charCountText.classList.add('is-danger');
   }

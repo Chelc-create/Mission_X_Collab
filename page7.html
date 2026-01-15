@@ -6,6 +6,7 @@
     <title>Page 7: Review Problem</title>
     <link rel="stylesheet" href="page7.css" />
     <script src="storage.js" defer></script>
+    <script src="FixIt.js" defer></script>
     <script src="page7.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -121,15 +122,19 @@
     <div class="review-block">
       <span class="review-title">Image(s)</span>
 
-      <div class="image-container">
-        <!-- Upload placeholder card -->
-        <button class="image-card image-upload" type="button">
-          <i class="fa-solid fa-circle-plus"></i>
-          <span class="upload-label">Upload Photo</span>
-        </button>
-
+      <!-- Images -Review -->
+      <div class="image-container" id="image-container">
+        <input type="file" id="photo-upload" accept="image/*" hidden/>
+<!-- Upload placeholder card -->
+        <label class="image-card" for="photo-upload" id="upload-card">
+          <div class="upload-button-and-text">
+            <i class="fa-solid fa-circle-plus"></i>
+            <span class="upload-label">Upload Photo</span>
+          </div>
+        </label>
+  
         <!-- Uploaded image preview card -->
-        <div class="image-card image-preview">
+        <!-- <div class="image-card image-preview">
           <img
             class="preview-img"
             src="images/icon/A-two-colour-tag-by-the-late-SINCH-in-the-Melbourne-suburb-of-Balaclava-photo-Allissa-Oughtred 1.png"
@@ -138,10 +143,10 @@
           <button class="remove-image" type="button" aria-label="Remove Image">
             <i class="fa-solid fa-circle-xmark"></i>
           </button>
-        </div>
+        </div> -->
 
         <!-- Another uploaded image -->
-        <div class="image-card image-preview">
+        <!-- <div class="image-card image-preview">
           <img
             class="preview-img"
             src="images/icon/spray-can-img.png"
@@ -150,7 +155,7 @@
           <button class="remove-image" type="button" aria-label="Remove Image">
             <img src="images/icon/gridicons_cross-circle-neonblue.png" alt="" />
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
     </div>

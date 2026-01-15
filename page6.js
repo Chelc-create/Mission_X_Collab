@@ -97,8 +97,6 @@ function createPhotoCard(src) {
 
   return card;
 }
-
-
 updateUploadCardVisibility();
 
 uploadInput.addEventListener("change", () => {
@@ -146,11 +144,61 @@ const cameraSection = document.getElementById("camera-section");
 const videoEl = document.getElementById("camera-preview");
 const statusEl = document.getElementById("camera-status");
 
+
+/* ================= Camera not Available ================= */
+function disableTakePhotoButton(reason = "Camera not avaliable"){
+  if(!takePhotoBtn) return;
+
+  //1. Make it non-clicakable
+  takePhotoBtn.disabled = true;
+
+  //2 Style it
+  takePhotoBtn.classList.add("is-disabled");
+
+  //3 Accessibility
+  takePhotoBtn.setAttribute("aria-disabled", "true")
+
+  //4 Helpful hint for mouse users
+  takePhotoBtn.title = reason;
+}
+
+function enableTakePhotoButton(){
+  if(!takePhotoBtn) return;
+
+  takePhotoBtn.disabled = false;
+  takePhotoBtn.classList.remove("is-disabled");
+  takePhotoBtn.removeAttribute("aria-disabled");
+  takePhotoBtn.removeAttribute("title");
+}
+
+//Decides whether button should be active when page loads.
+async function checkForCamera() {
+  //Checks whether the browser even supports camera detection.
+  if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices){//⭐
+    disableTakePhotoButton("Camera is not supported in this browser.");
+    return;
+  }
+  try{
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    const hasCamera = devices.some((d) => d.kind === "videoinput");
+
+    if(hasCamera){
+      enableTakePhotoButton();
+    } else {
+      disableTakePhotoButton("No camera detected on this device.");
+    }
+  } catch(err){
+    disableTakePhotoButton("Unable to access camera devices.");
+    console.warn("Camera check failed:", err);
+  }
+}
+
+/* ================= Camera is Available ================= */
 let stream = null;
 
 async function startCameraPreview() {
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-    if (statusEl) statusEl.textContentContent = "Camera not supported in this browser.";
+    if (statusEl) statusEl.textContent = "Camera not supported in this browser.";
     if (cameraSection) cameraSection.hidden = false;
     return;
   }
@@ -164,18 +212,23 @@ try{
 
 if (videoEl) videoEl.srcObject = stream;
     if (cameraSection) cameraSection.hidden = false;
-    if (statusEl) statusEl.textContent = "Camera connected.";
+    if (statusEl) statusEl.textContent = "Camera successfully connected.";
   } catch (err) {
     if (statusEl) statusEl.textContent = `Camera unavailable: ${err.name}`;
     if (cameraSection) cameraSection.hidden = false;
     console.error(err);
   }
 }
+//Run on page load
+checkForCamera();
+
 
 if (takePhotoBtn) {
-  takePhotoBtn.addEventListener("click", startCameraPreview);
+  takePhotoBtn.addEventListener("click", () => {
+    if(takePhotoBtn.disabled)return;
+    startCameraPreview();
+  });
 }
-
 
 
 /* ================= Tip Toggle ================= */

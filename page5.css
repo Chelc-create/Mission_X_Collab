@@ -232,7 +232,9 @@ header {
   display: flex;
   flex-direction: column;
 
+   margin-top: 20px;
   flex: 1;
+  position: relative;
 }
 
 .card-content {
@@ -398,7 +400,6 @@ header {
 /* ================= TIP ================= */
 .tip {
   background-color: #ffff;
-  margin-bottom: 6px;
 }
 
 .tip-title {
@@ -464,19 +465,11 @@ header {
   opacity: 1;
 }
 
-.tip-content p {
+.tip-content p,
+.tip-content li,
+.tip-content ul{
   font-weight: 500;
   margin: 0;
-}
-
-.tip-content li {
-  font-weight: 500;
-  margin: 0;
-}
-
-.tip-content ul {
-  margin: 8px 0 0;
-  padding-left: 18px;
 }
 
 .tip-chevron {
@@ -492,6 +485,9 @@ header {
 /* ================= DROPDOWN ================= */
 .category-dropdown {
   position: relative;
+
+  padding-top: 20px;
+  border-top: 1px solid rgba(6, 9, 50, 0.12);
 }
 
 .combo {
@@ -571,7 +567,7 @@ header {
 
 /* ================= DESCRIPTION ================= */
 .description-field {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .description-title {
@@ -606,7 +602,7 @@ header {
   transition: color 200ms ease;
 }
 
-/* Reaching character limit */
+/* Reaching character limit */⭐
 .char-count.is-warning {
   color: #b26a00;
 }
@@ -808,7 +804,6 @@ button,
   .actions {
     margin-left: -28px;
     margin-right: -28px;
-    border-top: 1px solid rgba(6, 9, 50, 0.12);
     padding: 14px 0;
   }
 
@@ -830,6 +825,18 @@ button,
 
     max-width: 500px;
     border-radius: 20px;
+  }
+
+  .save-draft{
+    position: absolute;
+    top: 20px;
+    right: 80px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .save-draft-btn{
+    font-size: rem;
   }
 }
 

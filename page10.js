@@ -14,7 +14,7 @@ console.log("tabs found:", tabs);
 
 // Print each button's data-filter value
 tabs.forEach((tab) => {
-  console.log("tab filter value:", tab.dataset.filter);
+  console.log("tab filter value:", tab.dataset.filter);//⭐
 
 //Click tab
   tab.addEventListener("click", () => {
@@ -32,7 +32,7 @@ tabs.forEach((tab) => {
 
     cards.forEach((card) => {
       //            what this card is       what the user wants to see
-      card.hidden = card.dataset.status !== filter;
+      card.hidden = card.dataset.status !== filter; ////⭐
     })
 
   })
