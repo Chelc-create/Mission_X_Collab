@@ -384,7 +384,7 @@ border-radius: 50%;
 
   font-size: 1rem;
   font-weight: 700;
-  color: #060932;
+  color: #ffffff;
 
   padding: 10px 0;
   border-radius: 999px;
@@ -395,7 +395,7 @@ border-radius: 50%;
 
 .is-active{
   background: #afccb5;
-  color:#ffff;
+  color: #060932;
   opacity: 1;
   box-shadow:  0 1px 2px rgba(0,0,0,0.12) ;
 }
@@ -488,7 +488,7 @@ opacity: 0.65;
 }
 
 /* Resolved Report Card  */
-#resolved-category {
+.resolved-category {
   font-size: 1.05rem;   /* larger than report number */
   font-weight: 800;
   color: #060932;
@@ -496,7 +496,7 @@ opacity: 0.65;
   margin-bottom: 2px;
 }
 
-#resolved-report-id{
+.resolved-report-id{
   display: block;
 }
 

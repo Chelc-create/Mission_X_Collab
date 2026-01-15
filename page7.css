@@ -5,9 +5,10 @@
   box-sizing: border-box;
 }
 
-* {
+/* DEBUGGING */
+/* * {
   outline: 1px solid rgba(255, 0, 0, 0.2);
-}
+} */
 
 html,
 body {
@@ -245,7 +246,7 @@ header {
   display: flex;
   flex-direction: column;
 
-  gap: 15px;
+  gap: 10px;
 }
 
 /* ================= PROGRESS+EXIT ================= */
@@ -393,11 +394,16 @@ header {
 .report-question {
   font-size: 1.5rem;
   color: #060932;
+  margin: 5px;
 }
 
 /* ================= Review Section ================= */
 .review-list {
+  margin: 0px;
   padding: 0;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(6, 9, 50, 0.12);
 }
 
 .review-item {
@@ -453,6 +459,7 @@ header {
   display: flex;
   justify-content: flex-start;
   gap: 16px;
+
   overflow-x: auto; /* enables horizontal scroll */
   padding-bottom: 8px; /* space for scrollbar */
   -webkit-overflow-scrolling: touch; /* smoother scrolling*/
@@ -466,10 +473,19 @@ header {
   border-top: 1px solid rgba(6, 9, 50, 0.12);
 }
 
-/* Hiding image scrollbar */
+.image-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.image-container::-webkit-scrollbar-thumb {
+  background-color: rgba(6, 9, 50, 0.25);
+  border-radius: 999px;
+}
+
+/* Hiding image scrollbar
 .image-container::-webkit-scrollbar {
   display: none;
-}
+} */
 
 /* Shared base style for ALL cards (upload + previews) */
 .image-card {
@@ -484,20 +500,17 @@ header {
   justify-content: center;
 }
 
-/* ================= Upload Photo ================= */
-.image-upload {
-  border: 1px dashed rgba(6, 9, 50, 0.4); /* lower opacity */
-  background: rgb(245, 243, 243);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+#upload-card {
+  flex: 0 0 145px;
+  width: 145px;
+  border: 1px dashed rgba(6, 9, 50, 0.4);
+  background: transparent;
 
   cursor: pointer; /* shows it’s clickable */
-  padding: 0; /* prevents default button padding changing the card size */
+  padding: 0;
 }
+/* ================= Upload Photo ================= */
+
 
 .image-card i {
   font-size: 2rem;
@@ -513,11 +526,18 @@ header {
   cursor: pointer;
 }
 
-/* Image preview */
-.image-preview {
-  position: relative; /* needed for the x button overlay*/
-  background: #e9e9ef;
-  border: none; /* remove dashed border */
+.upload-button-and-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.upload-button-and-text i {
+  font-size: 2rem;
+  color: #341bf1;
+  display: block;
 }
 
 /* The actual image inside the preview card */
@@ -570,6 +590,8 @@ header {
   margin-left: -20px;
   margin-right: -20px;
   padding: 12px 0;
+
+  border-top: 1px solid rgba(6, 9, 50, 0.12);
 }
 
 .back-btn,
@@ -615,7 +637,7 @@ header {
 
 /* ================= SAVE DRAFT ================= */
 .save-draft {
-   display: flex;
+  display: flex;
   justify-content: center;
   margin-top: auto;
   padding-bottom: 12px;
@@ -689,44 +711,41 @@ button,
   opacity: 0.8;
 }
 
-
-
 /* ================= Media Query ================= */
 @media only screen and (min-width: 768px) {
-
-  .nav-bar{
+  .nav-bar {
     padding: 48px 24px 0;
   }
 
-    .menu-hamburger i{
+  .menu-hamburger i {
     font-size: 1.75rem;
   }
   .progress-and-exit {
-    width: 100%
+    width: 100%;
   }
 
-   .card-container {
+  .card-container {
     width: min(720px, 100%);
     margin: 20px auto 0;
     border-radius: 24px 24px 0px 0px;
     padding: 28px 28px;
   }
 
-   .card-content {
+  .card-content {
     max-width: 100%;
     margin: 0;
   }
 
-   .report-question {
+  .report-question {
     width: 100%;
     margin: 18px 0 12px;
   }
 
-  .review-title{
-    font-size: 1.125rem
+  .review-title {
+    font-size: 1.125rem;
   }
 
-    .image-container {
+  .image-container {
     gap: 30px;
     padding-top: 20px;
   }
@@ -735,15 +754,15 @@ button,
     flex: 0 0 180px;
   }
 
-.image-card i {
-  font-size: 2.5rem;
-}
+  .image-card i {
+    font-size: 2.5rem;
+  }
 
   .upload-label {
     font-size: 1.125rem;
   }
 
-  .remove-image i{
+  .remove-image i {
     font-size: 2rem;
   }
 
