@@ -95,4 +95,10 @@ html {
     width: 20rem;
     font-size: 1.25rem;
   }
+
+  #login:hover,
+  #guest:hover,
+  #urgent:hover {
+    transform: scale(1.05);
+  }
 }
