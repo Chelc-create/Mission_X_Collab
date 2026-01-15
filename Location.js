@@ -1,4 +1,4 @@
-// use my current location
+// USE MY CURRENT LOCATION:
 
 document.getElementById("find-me").addEventListener("click", function () {
   const status = document.getElementById("location");
@@ -8,6 +8,8 @@ document.getElementById("find-me").addEventListener("click", function () {
   if (!navigator.geolocation) {
     status.textContent = "Geolocation is not supported by your browser";
     status.style.color = "#8a6d10";
+    status.style.fontWeight = "bold";
+    status.style.fontSize = "1.25em";
   } else {
     status.textContent = "Finding your location...";
     status.style.color = "#060932";
@@ -50,13 +52,12 @@ document.getElementById("find-me").addEventListener("click", function () {
   }
 });
 
-// autocomplete address
-
+// AUTOCOMPLETE ADDRESS IN INPUT FIELD:
 const addressInput = document.getElementById("enterLocation");
 const parentContainer = addressInput.parentElement;
 const mapEmbed = document.getElementById("map-embed");
 
-// 1. Ensure the parent is relative so the dropdown aligns to the input
+// Ensures the parent is relative so the dropdown aligns to the input
 parentContainer.style.position = "relative";
 
 // Create a container for suggestions and inject it after the input
@@ -73,7 +74,7 @@ addressInput.addEventListener("input", async (e) => {
     return;
   }
 
-  // Fetch suggestions from Photon (OpenStreetMap based)
+  // Fetch suggestions from Photon API (OpenStreetMap based)
   try {
     const response = await fetch(
       `https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=5`
