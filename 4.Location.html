@@ -99,13 +99,13 @@
             ></div>
           </div>
           <!-- Close Button -->
-          <button type="button" class="btn p-0 border-0" aria-label="Close">
-            <a href="1.Landing_Page.html">
-              <i
-                class="icon fa-solid fa-circle-xmark"
-                style="color: #060932"
-              ></i>
-            </a>
+          <button
+            type="button"
+            id="closeBtn"
+            class="btn p-0 border-0"
+            aria-label="Close"
+          >
+            <i class="icon fa-solid fa-circle-xmark" style="color: #060932"></i>
           </button>
         </div>
 
@@ -140,7 +140,7 @@
                 id="find-me"
                 class="btn btn-primary rounded-pill text-center border-0 h-40 w-100 p-3 shadow-lg"
               >
-                <cta>Use my current location</cta>
+                <span>Use my current location</span>
                 <i
                   id="location-icon"
                   class="fa-solid fa-location-crosshairs"
@@ -177,20 +177,17 @@
         style="max-width: 60rem"
       >
         <div class="action-btns d-flex justify-content-between w-100">
-          <a href="3.Home_Page.html">
-            <button id="home" class="btn btn-outline-secondary border-0">
-              <cta class="fw-bold">home</cta>
-            </button>
-          </a>
-
-          <a href="page5.html">
-            <button id="continue" class="btn btn-primary border-0">
-              <cta class="fw-bold">continue</cta>
-            </button>
-          </a>
+          <!-- Home Button -->
+          <button id="home" class="btn btn-outline-secondary border-0">
+            <span class="fw-bold">home</span>
+          </button>
+          <!-- Continue Button -->
+          <button id="continue" class="btn btn-primary border-0">
+            <span class="fw-bold">continue</span>
+          </button>
         </div>
       </div>
-      <!-- save draft -->
+
       <div
         class="save text-center"
         style="
@@ -200,15 +197,26 @@
           transform: translateX(-50%);
         "
       >
+        <!-- save draft button -->
         <button
           type="button"
           id="save-draft"
           class="btn btn-link text-decoration-none p-0"
         >
-          <cta class="fw-bold" style="color: #341bf1">Save draft</cta>
+          <span class="fw-bold" style="color: #341bf1">Save draft</span>
           <i class="fa-solid fa-floppy-disk" style="color: #341bf1"></i>
         </button>
       </div>
     </footer>
+
+    <script>
+      // HOME & CLOSE BUTTON NAV
+      document.getElementById("home").onclick = function () {
+        location.href = "3.Home_Page.html";
+      };
+      document.getElementById("closeBtn").onclick = function () {
+        location.href = "3.Home_Page.html";
+      };
+    </script>
   </body>
 </html>

@@ -217,7 +217,7 @@ p {
     transition: all 0.3s ease;
   }
 
-  /* When the parent CARD is hovered, change the CIRCLE */
+  /* When the parent CARD is hovered, change the circle */
   .card-item:hover #circle-plus {
     transform: scale(1.1);
     color: white;
@@ -226,7 +226,7 @@ p {
   #hero-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This is the magic line */
+    object-fit: cover;
     display: block; /* Removes any bottom whitespace */
   }
 

@@ -7,8 +7,12 @@ document.getElementById("find-me").addEventListener("click", function () {
 
   if (!navigator.geolocation) {
     status.textContent = "Geolocation is not supported by your browser";
+    status.style.color = "#8a6d10";
   } else {
-    status.textContent = "Finding Location...";
+    status.textContent = "Finding your location...";
+    status.style.color = "#060932";
+    status.style.fontWeight = "bold";
+    status.style.fontSize = "1.25em";
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -16,7 +20,7 @@ document.getElementById("find-me").addEventListener("click", function () {
         const lng = position.coords.longitude;
 
         try {
-          // 1. Fetch address using OpenStreetMap (Free)
+          // 1. Fetch address using Nominatim API (OpenStreetMap)
           const response = await fetch(
             `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`
           );
@@ -28,7 +32,7 @@ document.getElementById("find-me").addEventListener("click", function () {
           status.textContent = "";
 
           // 3. Update the Google Map iframe
-          // We use encodeURIComponent to make the address URL-safe
+          // Use encodeURIComponent to make the address URL-safe
           const newMapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(
             address
           )}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
@@ -116,3 +120,11 @@ const map = new google.maps.Map(document.getElementById("map"), {
   zoom: 15,
 });
 new google.maps.Marker({ position: { lat, lng }, map });
+
+// HOME & CLOSE BUTTON NAV
+document.getElementById("home").onclick = function () {
+  location.href = "3.Home_Page.html";
+};
+document.getElementById("closeBtn").onclick = function () {
+  location.href = "3.Home_Page.html";
+};

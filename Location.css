@@ -15,6 +15,10 @@ html {
   box-sizing: border-box;
 }
 
+main {
+  flex: 1 0 auto; /* This tells the main content to grow and fill available space */
+}
+
 .heading-container,
 .navbar {
   width: 100%;
@@ -130,6 +134,7 @@ html {
 
 #enterLocation:focus {
   border: 2px solid #341bf1 !important;
+  background-color: #ffffff;
   box-shadow: none;
   outline: none;
 }
@@ -151,7 +156,7 @@ html {
   justify-content: center;
 }
 
-cta {
+span {
   margin-right: 0.5rem;
   align-content: center;
   justify-content: center;
@@ -273,7 +278,7 @@ cta {
   border-bottom: none;
 }
 
-/* Media Queries Desktop */
+/* MEDIA QUERIES */
 @media (min-width: 48rem) {
   .navbar-collapse {
     background-color: transparent;
@@ -348,7 +353,7 @@ cta {
     padding: 5px;
   }
 
-  cta,
+  span,
   i {
     font-size: 1.25rem;
     display: inline-block;
@@ -374,6 +379,7 @@ cta {
     align-items: center;
     padding-right: 2rem !important;
     text-align: center !important;
+    border-radius: 0 80px 80px 0;
   }
 
   #continue {
@@ -382,25 +388,31 @@ cta {
     align-items: center !important;
     padding-left: 2rem !important;
     text-align: center !important;
+    border-radius: 80px 0 0 80px;
   }
 
-  /* Target the save container specifically */
+  /* Targetting the save container specifically */
   .save {
-    position: fixed !important; /* Fixed ensures it ignores the footer's bottom margin */
-    bottom: 0 !important; /* Forces it to the absolute bottom */
+    position: fixed !important;
+    bottom: 0 !important;
     left: 50% !important;
     transform: translateX(-50%);
-
-    /* Visuals to make it look like a tab touching the bottom */
     background-color: #ffffff !important;
     border-radius: 100px 100px 0 0;
-    padding: 30px !important; /* Bottom padding is small to stay flush */
-    height: auto !important; /* Let content dictate height */
-    z-index: 1050; /* Ensure it stays above the map */
-    pointer-events: auto; /* Ensure you can click it */
+    padding: 2rem !important;
+    height: auto !important; /* Let's content dictate height */
+    z-index: 1050; /* Ensures it stays above the map */
+    pointer-events: auto; /* Ensures you can click it */
   }
 
-  /* Remove any bottom margin from the button inside so it doesn't push the tab up */
+  #find-me:hover,
+  #home:hover,
+  #continue:hover,
+  #save-draft:hover {
+    transform: scale(1.04) !important;
+  }
+
+  /* Removes any bottom margin from the button inside so it doesn't push the tab up */
   #save-draft {
     margin-bottom: 0 !important;
     display: flex;
@@ -426,49 +438,3 @@ cta {
     border-bottom: none;
   }
 }
-
-/* XL SCREENS */
-/* 
-@media (min-width: 75rem) {
-  .heading {
-    font-size: 4rem;
-  }
-
-  #find-me {
-    height: 6rem;
-  }
-
-  .error-text {
-    font-size: 1.5rem !important;
-    padding: 5px;
-  }
-
-  cta,
-  i {
-    font-size: 1.5rem;
-    display: inline-block;
-  }
-
-  footer.actions {
-    bottom: 8rem !important;
-  }
-
-  .action-btns,
-  #home,
-  #continue {
-    width: 40%;
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-    margin: 0;
-  }
-
-  #home {
-    left: 0;
-    border-radius: 0 80px 80px 0;
-  }
-
-  #continue {
-    right: 0;
-    border-radius: 80px 0 0 80px;
-  }
-} */
