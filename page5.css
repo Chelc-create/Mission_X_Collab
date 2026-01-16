@@ -602,7 +602,7 @@ header {
   transition: color 200ms ease;
 }
 
-/* Reaching character limit */⭐
+/* Reaching character limit */
 .char-count.is-warning {
   color: #b26a00;
 }

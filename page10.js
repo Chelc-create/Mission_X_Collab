@@ -16,7 +16,7 @@ console.log("tabs found:", tabs);
 tabs.forEach((tab) => {
   console.log("tab filter value:", tab.dataset.filter);//⭐
 
-//Click tab
+
   tab.addEventListener("click", () => {
     console.log('clicked tab', tab.dataset.filter )
 
@@ -51,10 +51,10 @@ cards.forEach((card) => {
 
 /* ================= Active Report Card Content ================= */
 
-//1. Grab the raw string from localStorage using the exact key you used when saving
+//Grab the raw string from localStorage using the exact key you used when saving
 const raw = localStorage.getItem("fixit:lastSubmittedReport");
 
-//2. Turn the string into an object (or null if nothing is saved)
+//Turn the string into an object (or null if nothing is saved)
 const lastReport = raw ? JSON.parse(raw) : null;
 
 console.log("RAW lastSubmittedReport:", raw);
@@ -66,7 +66,7 @@ const locationEl = document.querySelector("#active-report-location");
 const dateEl = document.querySelector("#active-report-date");
 const statusEl = document.querySelector("#active-report-status");
 
-// 4) Only update the card if we actually found the elements
+
 if (idEl && categoryEl && locationEl && dateEl && statusEl) {
   if (lastReport) {
     idEl.textContent = lastReport.reportId || "Report Id: -";

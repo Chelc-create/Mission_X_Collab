@@ -5,9 +5,10 @@
   box-sizing: border-box;
 }
 
-.debug * {
+/* DEBGGUGING */
+/* .debug * {
   outline: 1px solid rgba(255, 0, 0, 0.2);
-}
+} */
 
 html,
 body {
@@ -269,7 +270,7 @@ p {
     gap: 12px;
 }
 
-/* Let the search bar grow to fill available space */
+
 .search-input{
    flex: 1;
    min-width: 0; /* prevents overflow when next to sort/filter */
