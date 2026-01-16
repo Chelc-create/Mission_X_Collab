@@ -118,10 +118,10 @@ uploadInput.addEventListener("change", () => {
   uploadInput.value = ""; // Reset input so selecting the same file again will still trigger change
 });
 
-// 7) Delete handler (event delegation) so it works for dynamically added cards
+//  Delete handler (event delegation) so it works for dynamically added cards
 imageContainer.addEventListener("click", (event) => {
   const deleteBtn = event.target.closest(".remove-image"); // Works even if user clicks the icon inside the button
-  if (!deleteBtn) return; // If click wasn’t on a delete button, ignore
+  if (!deleteBtn) return; 
 
   const card = deleteBtn.closest(".photo-card"); // Find the uploaded photo card that owns this delete button
   if (!card) return;
@@ -132,7 +132,7 @@ imageContainer.addEventListener("click", (event) => {
     URL.revokeObjectURL(img.src); // Free memory used by the blob URL
   }
 
-  card.remove(); //Remove the photo card from the DOM
+  card.remove(); 
   updateUploadCardVisibility(); // Bring upload card back if we’re now under the max
 });
 
